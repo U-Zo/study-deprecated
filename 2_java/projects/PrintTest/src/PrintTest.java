@@ -2,7 +2,12 @@
 public class PrintTest {
 
 	public static void main(String[] args) {
-		System.out.println("김우조 2020 남");
+		System.out.println("김우조 남 " + 2020);
+		System.out.println(2011 + "2012");
+		System.out.println(2011 + 2012);
+		System.out.println(2011 + "" + 2012);
+		System.out.println(2011 + 2012 + "");
+		System.out.println("" + 2011 + 2012);
 		System.out.print("김우조 ");
 		System.out.print("2020 ");
 		System.out.print("남\n");
