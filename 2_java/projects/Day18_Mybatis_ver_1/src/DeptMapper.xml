@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mybatis.example.BlogMapper">
+    <select id="selectAll" resultType="com.dto.Dept">
+        <!--
+        sql 문 작성
+        id: sql 문을 구분하는 유일 값
+        resultType: sql 수행 결과를 저장할 클래스 또는 객체 이름
+        resultMap: sql 수행 결과를 저장할 객체를 resultMap 으로 지정
+        parameterType: 지정한 객체의 프로퍼티 값이 sql 문의 입력 파라미터로 지정
+        -->
+        select deptno, dname, loc from dept
+    </select>
+</mapper>

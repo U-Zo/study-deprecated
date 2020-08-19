@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DeptMapper">
+    <select id="selectAll" resultType="com.dto.Dept">
+        select * from dept
+    </select>
+
+    <select id="selectByDeptno" parameterType="int" resultType="com.dto.Dept">
+        select * from dept where deptno = #{deptno}
+    </select>
+
+    <insert id="insertDept" parameterType="com.dto.Dept">
+        insert into dept values(#{deptno}, #{dname}, #{loc})
+    </insert>
+
+    <delete id="deleteDept" parameterType="int">
+        delete from dept where deptno = #{deptno}
+    </delete>
+</mapper>
