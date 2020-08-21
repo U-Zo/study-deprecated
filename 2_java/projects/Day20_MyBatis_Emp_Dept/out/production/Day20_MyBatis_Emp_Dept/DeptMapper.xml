@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dept.DeptMapper">
+    <select id="selectAll" resultType="Dept">
+        select * from dept
+    </select>
+
+    <select id="selectByDeptno" parameterType="int" resultType="Dept">
+        select * from dept where deptno = #{deptno}
+    </select>
+
+    <select id="selectByDeptNameAndLoc" parameterType="Dept" resultType="Dept">
+        select * from dept where dname = #{dname} and loc = #{loc}
+    </select>
+
+    <select id="selectByDname" parameterType="String" resultType="Dept">
+        select * from dept where dname = #{dname}
+    </select>
+
+    <select id="selectByLoc" parameterType="String" resultType="Dept">
+        select * from dept where loc = #{loc}
+    </select>
+
+    <select id="selectRecordCount" parameterType="int" resultType="int">
+        select count(*) from dept
+    </select>
+
+    <select id="selectByHashMap" parameterType="HashMap" resultType="Dept">
+        select * from dept where deptno between #{min} and #{max}
+    </select>
+
+    <select id="selectByDeptNoIn" parameterType="HashMap" resultType="Dept">
+        select * from dept where deptno in (#{num1}, #{num2}, #{num3})
+    </select>
+
+    <select id="selectByDeptNoHashMap" parameterType="int" resultType="HashMap">
+        select * from dept where deptno = #{deptno}
+    </select>
+</mapper>

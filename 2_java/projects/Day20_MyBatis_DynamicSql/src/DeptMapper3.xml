@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dept.DeptMapper3">
+    <select id="selectByDynamicDeptno" parameterType="HashMap" resultType="Dept">
+        select * from dept
+        <!-- if태그의 test 속성 값에 조건식을 지정하여 참이면 if 태그 안의 sql 문 수행 -->
+        <if test="deptno != null">
+            where deptno = #{deptno}
+        </if>
+    </select>
+
+    <select id="selectByDynamicDeptno2" parameterType="Dept" resultType="Dept">
+        select * from dept
+        <if test="deptno != 0">
+            where deptno = #{deptno}
+        </if>
+    </select>
+    
+    <select id="selectDynamicChoose" parameterType="HashMap" resultType="Dept">
+        select * from dept
+        <choose>
+            <when test="dname != null and loc != null">
+                where dname = #{dname} and loc = #{loc}
+            </when>
+            <when test="loc != null">
+                where dname = #{loc}
+            </when>
+            <otherwise>
+                where deptno = 20
+            </otherwise>
+        </choose>
+    </select>
+</mapper>

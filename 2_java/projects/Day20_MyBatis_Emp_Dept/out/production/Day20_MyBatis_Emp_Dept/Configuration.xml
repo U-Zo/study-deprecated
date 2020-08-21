@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties"/>
+    <typeAliases>
+        <!-- com.dto.Dept 를 Dept 로 호출 -->
+        <typeAlias type="com.dto.Emp" alias="Emp"/>
+        <typeAlias type="com.dto.Dept" alias="Dept"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED"> <!-- DB 연결 정보 저장 -->
+                <property name="driver" value="${oracle.jdbc}"/>
+                <property name="url" value="${oracle.url}"/>
+                <property name="username" value="${oracle.userid}"/>
+                <property name="password" value="${oracle.passwd}"/>
+                <!-- 기존에 사용하던 4가지 정보
+                <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
+                <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+                <property name="username" value="scott"/>
+                <property name="password" value="tiger"/>
+                -->
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers> <!-- 실행할 sql 문을 가진 xml 파일 경로 -->
+        <mapper resource="EmpMapper.xml"/>
+        <mapper resource="EmpMapper2.xml"/>
+        <mapper resource="DeptMapper.xml"/>
+        <mapper resource="DeptMapper2.xml"/>
+        <mapper resource="DeptMapper3.xml"/>
+    </mappers>
+</configuration>
