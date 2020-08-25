@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+    <select id="selectAllNotice" resultType="Notice">
+        select no, title, author name, to_char(writeday, 'yyyy-mm-dd') writeday from notice
+    </select>
+
+    <select id="selectDetailNotice" resultType="Notice" parameterType="int">
+        select no, title, content, author name, to_char(writeday, 'yyyy-mm-dd') writeday
+        from notice
+        where no = #{noticeNum}
+    </select>
+
+    <update id="noticeUpdate" parameterType="Notice">
+        update notice
+        <if test="title != null and content == null">
+            set title = #{title}
+        </if>
+        <if test="title == null and content != null">
+            set content = #{content}
+        </if>
+        <if test="title != null and content != null">
+            set title = #{title}, content = #{content}
+        </if>
+        where no = #{no}
+    </update>
+
+    <delete id="noticeDelete" parameterType="int">
+        delete from notice where no = #{inputNum}
+    </delete>
+</mapper>

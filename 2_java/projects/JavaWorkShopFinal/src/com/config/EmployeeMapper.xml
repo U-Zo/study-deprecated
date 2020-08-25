@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="employee">
+    <select id="selectAllEmployee" resultType="HashMap">
+        select empno, ename, dname, loc, sal, to_char(hiredate, 'yyyy-mm-dd') hiredate, state
+        from employee
+    </select>
+
+    <select id="searchList" parameterType="hashmap" resultType="Employee">
+        select empno, ename, dname, loc, sal, to_char(hiredate,'YYYY-MM-DD') hiredate, state
+        from employee
+        <if test="inputSubMenu == 1">
+            where empno = #{searchWord}
+        </if>
+        <if test="inputSubMenu == 2">
+            where ename = #{searchWord}
+        </if>
+        <if test="inputSubMenu == 3">
+            <if test="searchWord == 1">
+                where dname = '영업'
+            </if>
+            <if test="searchWord == 2">
+                where dname = '개발'
+            </if>
+        </if>
+        <if test="inputSubMenu == 4">
+            where loc = #{searchWord}
+        </if>
+        <if test="inputSubMenu == 5">
+            where sal > #{searchWord}
+        </if>
+    </select>
+
+    <select id="createEmployeeNum" resultType="int">
+        select max(empno)+1 from employee
+    </select>
+
+    <insert id="employeeInsert" parameterType="Employee">
+        insert into employee
+        values(#{empno}, #{ename}, #{dname}, #{loc}, #{sal}, #{hiredate}, #{state})
+    </insert>
+
+    <select id="searchEmployee" parameterType="int" resultType="Employee">
+        select * from employee where empno = #{empno}
+    </select>
+
+    <update id="employeeUpdate" parameterType="Employee" >
+        update employee
+        set ename = #{ename}, dname = #{dname}, loc = #{loc}, sal = #{sal}
+        where empno = #{empno}
+        <!-- 사원 업데이트 추가 -->
+    </update>
+
+    <delete id="employeeDelete" parameterType="int">
+        delete from employee where empno = #{empno}
+        <!-- 사원 번호로 삭제 -->
+    </delete>
+
+    <update id="employeeService" parameterType="HashMap" >
+        update employee
+        <if test="inputColumn == 1">
+            set state = '외출'
+        </if>
+        <if test="inputColumn == 2">
+            set state = '출장'
+        </if>
+        <if test="inputColumn == 3">
+            set state = '휴가'
+        </if>
+        <if test="inputColumn == 4">
+            set state = '근무'
+        </if>
+        where empno = #{empno}
+    </update>
+</mapper>
