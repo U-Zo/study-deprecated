@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="EUC-KR" />
+    <title>Insert title here</title>
+
+    <script type="text/javascript">
+      //1. 자동 형변환
+      var x1 = '10' + 5; // 105, 문자열의 + 연산은 붙여씀
+      var x2 = '10' - 5; // 5
+      var x3 = '10' * 5; // 50
+      var x4 = '10' / 5; // 2
+
+      console.log(x1 + ' ' + x2 + '  ' + x3 + ' ' + x4);
+
+      //2. boolean
+      const y1 = 0;
+      const y2 = '';
+      const y3 = parseInt('aaa');
+      const y4 = null; // null
+      let y5;
+      const name = 'hello';
+      const obj = [];
+      const newName = new String('helloString');
+
+      if (newName) console.log('newName is true ' + newName);
+      if (obj) console.log('obj is true ' + obj);
+      if (name) console.log('name is true ' + name);
+      if (!y1) console.log('y1 is false ' + y1);
+      if (!y2) console.log('y2 is false ' + y2);
+      if (!y3) console.log('y3 is false ' + y3);
+      if (!y4) console.log('y4 is false ' + y4);
+      if (!y5) console.log('y5 is false ' + y5);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var k = 4 > 5 ? 100 : 200;
+      var k2 = 4 > 5 ? alert(1) : alert(2);
+      var k3 = 4 > 5 ? (alert(1), 100) : (alert(2), 200);
+      var k4 = '22' ? 100 : 200;
+      const space = '&nbsp;&nbsp;&nbsp;&nbsp;';
+      console.log(k + '\t' + k2 + '\t' + k3 + '\t' + k4);
+      document.write(k + space + k2 + space + k3 + space + k4);
+    </script>
+  </head>
+  <body></body>
+</html>
