@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      console.log('before xxx');
+      xxx();
+      console.log('after xxx');
+
+      function xxx(n) {
+        var x = 20;
+        console.log('n = ' + n);
+        console.log(x);
+
+        // return x;
+      }
+
+      console.log('before xxx');
+      xxx(10);
+      console.log('after xxx');
+      // console.log(x);
+    </script>
+  </head>
+  <body></body>
+</html>
