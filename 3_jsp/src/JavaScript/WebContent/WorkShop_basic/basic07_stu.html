@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var n1 = prompt();
+      var n2 = prompt();
+
+      document.write(
+        `<h1>문제 7</h1>
+      <div>n1 = ${n1}, n2 = ${n2}</div>`
+      );
+
+      var tmp = n1;
+      n1 = n2;
+      n2 = tmp;
+
+      document.write(
+        `<div>swap n1, n2<div>
+      <div>n1 = ${n1}, n2 = ${n2}</div>`
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

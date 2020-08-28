@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-size: 2rem;
+      }
+    </style>
+    <script>
+      const n1 = prompt('1st num');
+      const n2 = prompt('2nd num');
+      const n3 = prompt('3rd num');
+
+      const max = ((n1, n2, n3) => {
+        return n1 > n2 ? n1 : n2 > n3 ? n2 : n3;
+      })(n1, n2, n3);
+
+      console.log('1st num: ' + n1);
+      console.log('2nd num: ' + n2);
+      console.log('3rd num: ' + n3);
+      console.log('max num: ' + max);
+      document.write('max num: ' + max);
+    </script>
+  </head>
+  <body></body>
+</html>

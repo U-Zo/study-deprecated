@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var str = '';
+
+      for (var i = 1; i <= 100; i++) {
+        str += i + ' '; // 콘솔
+        document.write(i + ' '); // 바디
+        if (i % 10 === 0) {
+          str += '\n'; // 콘솔
+          document.write('<br/>'); // 바디
+        }
+      }
+
+      console.log(str);
+    </script>
+  </head>
+  <body></body>
+</html>

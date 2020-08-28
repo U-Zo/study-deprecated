@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      (function getCount() {
+        var num = prompt();
+        var i = 0;
+        var count = 0;
+
+        document.write('<h1>입력값: ' + num + '</h1>');
+        console.log('입력값: ' + num);
+        while (++i <= num) {
+          if (i % 3 === 0) {
+            document.write(i + '<br/>');
+            console.log(i);
+            count++;
+          }
+        }
+
+        document.write('<h1>3의 배수의 개수: ' + count);
+        console.log('3의 배수의 개수: ' + count);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
