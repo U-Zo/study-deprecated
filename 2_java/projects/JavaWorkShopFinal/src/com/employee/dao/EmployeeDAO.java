@@ -47,7 +47,6 @@ public class EmployeeDAO {
     }
 
     public void employeeUpdate(SqlSession session, Employee emp) throws DataNotFoundException {
-        int num = 0;
         Employee employee = null;
 
         employee = searchEmployee(session, emp.getEmpno());
@@ -59,8 +58,7 @@ public class EmployeeDAO {
 
         if (!emp.getLoc().equals("")) employee.setLoc(emp.getLoc());
         if (emp.getSal() != 0) employee.setSal(emp.getSal());
-        num = session.update("employee.employeeUpdate", emp);
-        if (num == 0) throw new DataNotFoundException("에러발생: " + emp.getEmpno() + "과 일치하는 사원이 없습니다.");
+        session.update("employee.employeeUpdate", emp);
     }
 
     public void employeeDelete(SqlSession session, int empno) throws DataNotFoundException {
@@ -70,7 +68,6 @@ public class EmployeeDAO {
     }
 
     public void employeeService(SqlSession session, int empno, String inputColumn) throws DataNotFoundException {
-        int num = 0;
         Employee emp = null;
         String preState = null;
         String curState = null;
@@ -79,10 +76,9 @@ public class EmployeeDAO {
         HashMap<String, Object> map = new HashMap<>();
         map.put("empno", empno);
         map.put("inputColumn", inputColumn);
-        num = session.update("employee.employeeService", map);
+        session.update("employee.employeeService", map);
         emp = searchEmployee(session, empno);
         curState = emp.getState();
         System.out.println(preState + "중에서 " + curState + "중으로 변경되었습니다.");
-        if (num == 0) throw new DataNotFoundException("에러발생: " + empno + "과 일치하는 사원이 없습니다.");
     }
 }

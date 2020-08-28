@@ -88,6 +88,8 @@ public class EmployeeBiz implements IEmployeeBiz {
     @Override
     public void employeeInsert(Employee emp) {
         SqlSession session = MySqlSessionFactory.getSqlSession();
+        if (emp.getDname().equals("1")) emp.setDname("영업");
+        else if (emp.getDname().equals("2")) emp.setDname("개발");
         try {
             dao.employeeInsert(session, emp);
             session.commit();
