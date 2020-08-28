@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // for in 을 이용한 배열 출력
+      var myCars = ['BMW', 'Benz', '티코'];
+      for (var i in myCars) {
+        console.log('myCars = ' + myCars[i]);
+      }
+
+      // for in 을 이용한 객체 출력
+      var person = {
+        name: '홍길동',
+        age: 20,
+        address: '서울',
+      };
+
+      for (var p in person) {
+        console.log('person 정보: ' + p + ' : ' + person[p]);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
