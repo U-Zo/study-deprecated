@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>woojo</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <style>
+      html {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        height: 100%;
+        background-color: rgb(216, 218, 231);
+      }
+
+      #main {
+        width: 100%;
+        min-height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #form {
+        width: 500px;
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+
+      #form-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80px;
+        font-size: 2rem;
+        background-color: rgb(8, 179, 179);
+        font-weight: bold;
+        color: #ffffff;
+      }
+
+      #form-body {
+        padding: 20px 10%;
+        text-align: center;
+        font-size: 1.6rem;
+      }
+
+      #form-body-title {
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      #form-body-footer {
+        margin-top: 2rem;
+        text-align: end;
+      }
+
+      input,
+      button {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid #bec9d3;
+        padding: 12px;
+        border-radius: 4px;
+        outline: none;
+        font-size: 1.4rem;
+      }
+
+      input + input {
+        margin-top: 1rem;
+      }
+
+      a {
+        border: none;
+        background-color: inherit;
+        outline: none;
+        font-size: 1.2rem;
+        color: rgb(0, 126, 230);
+      }
+
+      #button {
+        margin-top: 1rem;
+        background-color: rgb(2, 177, 177);
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      #button:hover {
+        background-color: rgb(0, 145, 145);
+      }
+    </style>
+    <script>
+      const onClick = (e) => {
+        this.addEventListener('click', (e) => e.preventDefault());
+        const id = document.querySelector('#userid').value;
+        const passwd = document.querySelector('#passwd').value;
+        alert('id: ' + id + '\npassword: ' + passwd);
+      };
+    </script>
+  </head>
+  <body>
+    <div id="main">
+      <form id="form" method="GET" action="">
+        <div id="form-header">
+          <p>Acorn</p>
+        </div>
+        <div id="form-body">
+          <p id="form-body-title">Login</p>
+          <input
+            id="userid"
+            name="user"
+            type="text"
+            placeholder="아이디"
+            autocomplete="none"
+          />
+          <input id="passwd" name="pass" type="password" placeholder="비밀번호" />
+          <button id="button" onclick="onClick(this)">로그인</button>
+          <div id="form-body-footer">
+            <a href="#">회원가입</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

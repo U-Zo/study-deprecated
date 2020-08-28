@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>resume</title>
+    <style>
+      p {
+        color: darkblue;
+        margin: 0;
+        font-size: 1.4rem;
+      }
+
+      button {
+        margin-top: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>지원서 작성</h2>
+    <hr />
+    <form>
+      <p>기본 지원 사항</p>
+      <table border="1" name="info1">
+        <tr>
+          <th><b>응시분야</b></th>
+          <td>
+            <select name="depart">
+              <option value="consulting">Consulting</option>
+              <option value="iot">IoT</option>
+              <option value="bigdata">빅데이터</option>
+              <option value="rd">R&D</option>
+            </select>
+            <select name="job">
+              <option value="staff">Staff</option>
+              <option value="new">신입</option>
+              <option value="exp">경력</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th><b>졸업여부</b></th>
+          <td>
+            <input type="radio" name="isGraduate" value="true" checked />졸업
+            <input type="radio" name="isGraduate" value="false" />졸업예정
+          </td>
+        </tr>
+      </table>
+      <p>기본 인적 사항</p>
+      <table border="1" name="info2">
+        <tr>
+          <th><b>성명</b></th>
+          <td>
+            <input type="text" name="name" />
+          </td>
+          <td><b>국적</b><input type="text" name="country" /></td>
+        </tr>
+        <tr>
+          <th><b>영문이름</b></th>
+          <td>성<input type="text" name="last_name" /></td>
+          <td>이름<input type="text" name="first_name" /></td>
+        </tr>
+        <tr>
+          <th><b>이메일</b></th>
+          <td colspan="2">
+            <input type="text" name="email" />@<input type="text" name="domain" />
+          </td>
+        </tr>
+        <tr>
+          <th><b>휴대전화</b></th>
+          <td colspan="2">
+            <input type="text" size="3" name="phone1" />
+            -
+            <input type="text" size="4" name="phone2" />
+            -
+            <input type="text" size="4" name="phone2" />
+          </td>
+        </tr>
+      </table>
+      <p>어학사항</p>
+      <table border="1" name="info3">
+        <tr>
+          <th><b>어학구분</b></th>
+          <td>
+            <select name="lang">
+              <option value="영어">영어</option>
+              <option value="중국어">중국어</option>
+              <option value="불어">불어</option>
+              <option value="일본어">일본어</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th><b>어학시험명</b></th>
+          <td><input type="text" name="test_name" /></td>
+        </tr>
+        <tr>
+          <th><b>점수/등급</b></th>
+          <td><input type="text" name="score" /> / <input type="text" name="grade" /></td>
+        </tr>
+      </table>
+      <button type="submit">지원하기</button>
+      <button type="reset"">다시작성하기</button>
+    </form>
+  </body>
+</html>
