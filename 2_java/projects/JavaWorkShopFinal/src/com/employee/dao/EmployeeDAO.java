@@ -1,6 +1,8 @@
 package com.employee.dao;
 
 import com.employee.entity.Employee;
+import com.employee.entity.Engineer;
+import com.employee.entity.Sales;
 import com.employee.exception.DataNotFoundException;
 import org.apache.ibatis.session.SqlSession;
 
@@ -15,8 +17,8 @@ public class EmployeeDAO {
         return list;
     }
 
-    public List<Employee> searchList(SqlSession session, String inputSubMenu, String searchWord) throws DataNotFoundException {
-        List<Employee> list = null;
+    public List<HashMap<String, Object>> searchList(SqlSession session, String inputSubMenu, String searchWord) throws DataNotFoundException {
+        List<HashMap<String, Object>> list = null;
         HashMap<String, String> map = new HashMap<>();
         map.put("inputSubMenu", inputSubMenu);
         map.put("searchWord", searchWord);
@@ -35,7 +37,12 @@ public class EmployeeDAO {
 
     public void employeeInsert(SqlSession session, Employee emp) throws DataNotFoundException {
         int num = 0;
-        num = session.insert("employee.employeeInsert", emp);
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("emp", emp);
+        if (emp instanceof Sales) map.put("dname", "영업");
+        else if (emp instanceof Engineer) map.put("dname", "개발");
+
+        num = session.insert("employee.employeeInsert", map);
         if (num == 0) throw new DataNotFoundException("에러발생: " + emp.getEmpno() + "과 일치하는 사원이 없습니다.");
     }
 
@@ -47,18 +54,17 @@ public class EmployeeDAO {
     }
 
     public void employeeUpdate(SqlSession session, Employee emp) throws DataNotFoundException {
-        Employee employee = null;
-
-        employee = searchEmployee(session, emp.getEmpno());
+        HashMap<String, Object> map = new HashMap<>();
+        Employee employee = searchEmployee(session, emp.getEmpno());
         if (!emp.getEname().equals("")) employee.setEname(emp.getEname());
-        if (!emp.getDname().equals("")) {
-            if (emp.getDname().equals("1")) employee.setDname("영업");
-            else if (emp.getDname().equals("2")) employee.setDname("개발");
-        }
-
         if (!emp.getLoc().equals("")) employee.setLoc(emp.getLoc());
         if (emp.getSal() != 0) employee.setSal(emp.getSal());
-        session.update("employee.employeeUpdate", emp);
+
+        map.put("emp", employee);
+        if (emp instanceof Sales) map.put("dname", "영업");
+        else if (emp instanceof Engineer) map.put("dname", "개발");
+
+        session.update("employee.employeeUpdate", map);
     }
 
     public void employeeDelete(SqlSession session, int empno) throws DataNotFoundException {

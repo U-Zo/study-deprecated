@@ -9,8 +9,8 @@ public class Sales extends Employee {
     public Sales() {
     }
 
-    public Sales(int empno, String ename, String dname, String loc, int sal, String hiredate, String state, double commission) {
-        super(empno, ename, dname, loc, sal, hiredate, state);
+    public Sales(int empno, String ename, String loc, int sal, String hiredate, String state, double commission) {
+        super(empno, ename, loc, sal, hiredate, state);
         this.commission = commission;
     }
 
@@ -24,7 +24,7 @@ public class Sales extends Employee {
 
     @Override
     public String toString() {
-        return super.getEmpno() + "\t" + super.getEname() + "\t" + super.getDname() +
+        return super.getEmpno() + "\t" + super.getEname() + "\t영업" +
                 "\t\t" + super.getLoc() + "\t\t" + CommonUtil.getCurrency(super.getSal()) +
                 "\t\t" + CommonUtil.getCurrency((int) commission) +
                 "\t\t" + super.getHiredate().substring(0, 10) +

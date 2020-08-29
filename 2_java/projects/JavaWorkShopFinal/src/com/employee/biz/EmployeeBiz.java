@@ -41,13 +41,13 @@ public class EmployeeBiz implements IEmployeeBiz {
             String hiredate = (String) map.get("HIREDATE");
             String state = (String) map.get("STATE");
             if (dname.equals("영업")) {
-                Sales sales = new Sales(empno, ename, dname, loc, sal, hiredate, state, sal * Sales.COMMISSION_RATE);
+                Sales sales = new Sales(empno, ename, loc, sal, hiredate, state, sal * Sales.COMMISSION_RATE);
                 list.add(sales);
             } else if (dname.equals("개발")) {
-                Engineer engineer = new Engineer(empno, ename, dname, loc, sal, hiredate, state);
+                Engineer engineer = new Engineer(empno, ename, loc, sal, hiredate, state);
                 list.add(engineer);
             } else {
-                Employee employee = new Employee(empno, ename, dname, loc, sal, hiredate, state);
+                Employee employee = new Employee(empno, ename, loc, sal, hiredate, state);
                 list.add(employee);
             }
         }
@@ -58,14 +58,35 @@ public class EmployeeBiz implements IEmployeeBiz {
     @Override
     public List<Employee> searchList(String inputSubMenu, String searchWord) {
         SqlSession session = MySqlSessionFactory.getSqlSession();
-        List<Employee> list = null;
+        List<HashMap<String, Object>> mapList = null;
+        List<Employee> list = new ArrayList<>();
 
         try {
-            list = dao.searchList(session, inputSubMenu, searchWord);
+            mapList = dao.searchList(session, inputSubMenu, searchWord);
         } catch (DataNotFoundException e) {
             System.out.println(e.getMessage());
         } finally {
             session.close();
+        }
+
+        for (HashMap<String, Object> map : mapList) {
+            int empno = ((BigDecimal) map.get("EMPNO")).intValue();
+            String ename = (String) map.get("ENAME");
+            String dname = (String) map.get("DNAME");
+            String loc = (String) map.get("LOC");
+            int sal = ((BigDecimal) map.get("SAL")).intValue();
+            String hiredate = (String) map.get("HIREDATE");
+            String state = (String) map.get("STATE");
+            if (dname.equals("영업")) {
+                Sales sales = new Sales(empno, ename, loc, sal, hiredate, state, sal * Sales.COMMISSION_RATE);
+                list.add(sales);
+            } else if (dname.equals("개발")) {
+                Engineer engineer = new Engineer(empno, ename, loc, sal, hiredate, state);
+                list.add(engineer);
+            } else {
+                Employee employee = new Employee(empno, ename, loc, sal, hiredate, state);
+                list.add(employee);
+            }
         }
 
         return list;
@@ -77,7 +98,6 @@ public class EmployeeBiz implements IEmployeeBiz {
         int num = 0;
         try {
             num = dao.createEmployeeNum(session);
-            System.out.println(num);
         } finally {
             session.close();
         }
@@ -88,8 +108,6 @@ public class EmployeeBiz implements IEmployeeBiz {
     @Override
     public void employeeInsert(Employee emp) {
         SqlSession session = MySqlSessionFactory.getSqlSession();
-        if (emp.getDname().equals("1")) emp.setDname("영업");
-        else if (emp.getDname().equals("2")) emp.setDname("개발");
         try {
             dao.employeeInsert(session, emp);
             session.commit();

@@ -3,10 +3,13 @@ package com.main;
 import com.common.util.CommonUtil;
 import com.employee.biz.EmployeeBiz;
 import com.employee.entity.Employee;
+import com.employee.entity.Engineer;
+import com.employee.entity.Sales;
 import com.notice.biz.NoticeBiz;
 import com.notice.entity.Notice;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 public class MainService {
@@ -143,7 +146,15 @@ public class MainService {
             hiredate = CommonUtil.getDate(new Date());
         }
 
-        Employee emp = new Employee(empno, ename, dname, loc, sal, hiredate, state);
+        Employee emp = null;
+        if (dname.equals("1")) {
+            emp = new Sales(empno, ename, loc, sal, hiredate, state, sal * Sales.COMMISSION_RATE);
+        } else if (dname.equals("2")) {
+            emp = new Engineer(empno, ename, loc, sal, hiredate, state);
+        } else {
+            emp = new Employee(empno, ename, loc, sal, hiredate, state);
+        }
+
         employeeBiz.employeeInsert(emp);
         System.out.println("*****************************************");
         selectAllEmployee();
@@ -179,10 +190,13 @@ public class MainService {
         sal = CommonUtil.getUserInput();
         if (sal.equals("")) sal = "0";
 
-        Employee emp = new Employee();
+        Employee emp = null;
+        if (dname.equals("1")) emp = new Sales();
+        else if (dname.equals("2")) emp = new Engineer();
+        else emp = new Employee();
+
         emp.setEmpno(Integer.parseInt(empno));
         emp.setEname(ename);
-        emp.setDname(dname);
         emp.setLoc(loc);
         emp.setSal(Integer.parseInt(sal));
 

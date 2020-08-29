@@ -1,11 +1,8 @@
 package com.employee.entity;
 
-import com.common.util.CommonUtil;
-
 public class Employee {
     private int empno;
     private String ename;
-    private String dname;
     private String loc;
     private int sal;
     private String hiredate;
@@ -14,10 +11,9 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int empno, String ename, String dname, String loc, int sal, String hiredate, String state) {
+    public Employee(int empno, String ename, String loc, int sal, String hiredate, String state) {
         this.empno = empno;
         this.ename = ename;
-        this.dname = dname;
         this.loc = loc;
         this.sal = sal;
         this.hiredate = hiredate;
@@ -38,14 +34,6 @@ public class Employee {
 
     public void setEname(String ename) {
         this.ename = ename;
-    }
-
-    public String getDname() {
-        return dname;
-    }
-
-    public void setDname(String dname) {
-        this.dname = dname;
     }
 
     public String getLoc() {
@@ -78,11 +66,5 @@ public class Employee {
 
     public void setState(String state) {
         this.state = state;
-    }
-
-    @Override
-    public String toString() {
-        return empno + "\t" + ename + "\t" + dname + "\t\t" + loc + "\t\t" + CommonUtil.getCurrency(sal) +
-                "\t\t\t\t\t" + hiredate.substring(0, 10) + "\t\t" + state;
     }
 }
