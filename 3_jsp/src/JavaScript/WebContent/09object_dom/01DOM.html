@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  </head>
+  <body>
+    <p>Hello</p>
+    <a href="http://www.daum.net">다음</a>
+    <script type="text/javascript">
+      //노드 접근
+      var doc = document.childNodes;
+      var html = doc[1];
+      var htmlChild = html.childNodes;
+      console.log(htmlChild);
+      var body = htmlChild[1].nextSibling;
+
+      var a = body.childNodes;
+      console.log(a);
+      console.log(a.getAttribute('href'));
+      a.setAttribute('href', 'http://www.google.co.kr');
+
+      /* var p = body.firstChild;
+    
+        Node
+        - element node 1
+        - attribute node 2
+        - text node 3
+    */
+      /* console.log(p.nodeType , p.nodeName);
+    var v = p.firstChild;
+    console.log(v.nodeType , v.nodeName , v.nodeValue); */
+    </script>
+  </body>
+</html>

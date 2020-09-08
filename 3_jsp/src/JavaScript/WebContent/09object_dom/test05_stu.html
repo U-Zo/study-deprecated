@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <script>
+      var arr;
+
+      function onClick() {
+        arr = new Array();
+        console.log(arr);
+      }
+
+      function arrPush() {
+        var arrValue = document.getElementById('v1').value;
+        arr.push(arrValue);
+        console.log(arr);
+      }
+
+      function removeArr() {
+        arr.splice(0, arr.length);
+        console.log(arr);
+      }
+
+      function printArr() {
+        document.getElementById('result').innerHTML = arr.join('<br>');
+      }
+    </script>
+  </head>
+  <body>
+    <h3>배열 관리</h3>
+    <button onclick="onClick()">배열생성</button>
+    <button onclick="removeArr()">배열삭제</button><br />
+    값:<input type="text" name="v1" id="v1" />
+    <button onclick="arrPush()">배열에 값 저장</button><br />
+    <button onclick="printArr()">배열에 값 출력</button><br />
+    <div id="result"></div>
+  </body>
+</html>

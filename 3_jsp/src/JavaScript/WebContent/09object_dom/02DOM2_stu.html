@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <script type="text/javascript">
+      function mySort(s) {
+        var str = document.getElementById('v1').value;
+        var arr = str.split(',');
+        if (s === 'asc') {
+          arr.sort((a, b) => a - b);
+        } else {
+          arr.sort((a, b) => b - a);
+        }
+
+        document.getElementById('result').value = arr;
+      }
+    </script>
+  </head>
+  <body>
+    입력값<input type="text" name="v1" id="v1" value="1,2,3,2,7,5,6" /><br />
+    <button onclick="mySort('asc')">오름차순 정렬</button><br />
+    <button onclick="mySort('desc')">오름차순 정렬</button><br />
+    결과값<input type="text" name="result" id="result" />
+  </body>
+</html>

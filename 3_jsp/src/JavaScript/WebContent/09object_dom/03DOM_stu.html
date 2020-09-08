@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var arr = ['a.png', 'b.png', 'c.png'];
+      var i = 0;
+
+      function before() {
+        var img = document.getElementById('flag');
+        --i;
+        if (i < 0) {
+          i = 2;
+        }
+
+        img.src = 'img/' + arr[i];
+      }
+
+      function next() {
+        var img = document.getElementById('flag');
+        ++i;
+        if (i > 2) {
+          i = 0;
+        }
+
+        img.src = 'img/' + arr[i];
+      }
+    </script>
+  </head>
+  <body>
+    <img src="img/a.png" width="200" height="200" id="flag" />
+    <button onclick="before()">전</button>
+    <button onclick="next()">후</button>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+  </head>
+  <body>
+    <p>hello</p>
+    <div>
+      <div id="x">홍길동</div>
+    </div>
+    <a href="daum.net">다음</a><br />
+    이름:<input type="text" name="username" id="username" />
+    <a href="javascript:mesg()">입력값 얻기</a>
+    <script type="text/javascript">
+      function mesg() {
+        var n = document.getElementById('username');
+        console.log(n);
+        var s = n.value;
+        console.log(s);
+      }
+    </script>
+  </body>
+</html>
