@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>func16</title>
+    <script>
+      var ssn = '1981/10/20';
+
+      function myAge(str) {
+        var birth = str.split('/');
+        var currYear = new Date().getFullYear();
+
+        return currYear - birth[0] + 1;
+      }
+
+      var age = myAge(ssn);
+      console.log('현재 나이: ' + age);
+    </script>
+  </head>
+  <body></body>
+</html>

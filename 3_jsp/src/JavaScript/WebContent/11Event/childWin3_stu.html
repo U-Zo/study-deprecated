@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const post = opener.document.querySelector('#post');
+      const address = opener.document.querySelector('#address');
+
+      const add1 = () => {
+        const postNodes = document.querySelectorAll('.post');
+        const addrNodes = document.querySelectorAll('.address');
+        post.value = postNodes[0].innerHTML;
+        address.value = addrNodes[0].innerHTML;
+        window.close();
+      };
+
+      const add2 = () => {
+        const postNodes = document.querySelectorAll('.post');
+        const addrNodes = document.querySelectorAll('.address');
+        post.value = postNodes[1].innerHTML;
+        address.value = addrNodes[1].innerHTML;
+        window.close();
+      };
+    </script>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <th>우편번호</th>
+        <th>주소</th>
+      </tr>
+      <tr>
+        <td><a href="javascript:add1()" class="post">12345</a></td>
+        <td class="address">서울시 강남구 XXX 아파트</td>
+      </tr>
+      <tr>
+        <td><a href="javascript:add2()" class="post">99999</a></td>
+        <td class="address">경기도 고양시 ZZZ 아파트</td>
+      </tr>
+    </table>
+  </body>
+</html>

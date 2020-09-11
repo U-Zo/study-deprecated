@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = () => {
+        const checkAll = document.querySelector('input[name="all"]');
+        const checkBox = document.querySelectorAll('.lang');
+
+        checkAll.addEventListener('change', () => {
+          for (let i in checkBox) {
+            checkBox[i].checked = checkAll.checked;
+          }
+        });
+      };
+    </script>
+  </head>
+  <body>
+    전체선택
+    <input type="checkbox" name="all" onclick="" /><br />
+    <input type="checkbox" name="java" class="lang" />java<br />
+    <input type="checkbox" name="sql" class="lang" />sql<br />
+    <input type="checkbox" name="angular" class="lang" />angular<br />
+  </body>
+</html>

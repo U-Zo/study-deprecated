@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <script type="text/javascript">
+      // 수치 데이터 작성 방법
+      //1. new
+      var n = new Number(10);
+
+      //2. 리터럴
+      // valueOf()는 정수값으로 리턴
+      // toString()는 문자열로 리턴
+      var n2 = 10;
+      console.log(n.valueOf(), n2, n.toString());
+
+      var x = 5.7354;
+      console.log(x.toFixed(2)); // 소수점 2자리
+      console.log(x.toFixed()); //  반올림
+      console.log(x.toFixed(10));
+
+      // 문자열로 변경
+      var y = 10;
+      console.log(y.toString());
+      console.log(y.toString(2));
+      console.log(y.toString(8)); //8진수
+      console.log(y.toString(16)); //16진수
+
+      console.log(Number.isInteger(123)); //true
+      console.log(Number.isInteger(-123)); //true
+      console.log(Number.isInteger(5 - 2)); //true
+      console.log(Number.isInteger(0)); //true
+      console.log(Number.isInteger(0.5)); //false
+      console.log(Number.isInteger('123')); //false
+      console.log(Number.isInteger(false)); //false
+      console.log(Number.isInteger(Infinity)); //false
+      console.log(Number.isInteger(-Infinity)); //false
+      console.log(Number.isInteger(0 / 0)); //false
+
+      // NaN
+      var xyz = parseInt('aaa');
+      console.log(xyz);
+    </script>
+  </head>
+  <body></body>
+</html>

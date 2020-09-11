@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>func07</title>
+    <script>
+      function xyz(string) {
+        return string.substr(0, 6);
+      }
+
+      var birth = xyz('811025-1234567');
+      console.log('생년월일', birth);
+
+      document.write(
+        `
+        <table border=1>
+          <tr>
+            <th>생년월일</th>
+          </tr>
+          <tr>
+            <td>${birth}</td>
+          </tr>
+        </table>
+        `
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

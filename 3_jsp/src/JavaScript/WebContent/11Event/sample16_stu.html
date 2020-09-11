@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const idCheck = () => {
+        const child = window.open(
+          'childWin2_stu.html',
+          '',
+          'width=500, height=500'
+        );
+      };
+    </script>
+  </head>
+  <body>
+    아이디<input type="text" name="userid" id="userid" />
+    <button onClick="idCheck()">아이디중복</button>
+  </body>
+</html>

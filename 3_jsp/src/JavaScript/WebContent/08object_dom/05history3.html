@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      document.write(history.length + '<br/>');
+
+      function back() {
+        history.back();
+      }
+
+      function home() {
+        history.go(-2);
+      }
+    </script>
+  </head>
+  <body>
+    현재 05history3.html
+    <a href="javascript:back()">이전으로</a>
+    <a href="javascript:home()">첫화면</a>
+  </body>
+</html>

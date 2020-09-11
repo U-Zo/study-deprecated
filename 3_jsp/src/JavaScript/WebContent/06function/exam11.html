@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function aaa(num) {
+        console.log('aaa 함수' + num);
+      }
+
+      var xxx = aaa;
+      xxx(100);
+      aaa(200);
+      func4(300); // hoisting, 초기화 전으로 에러 발생
+
+      // 변수로 이름 할당
+      var func4 = function (num) {
+        console.log('func4', num);
+      };
+
+      console.log(func4);
+      func4(300);
+    </script>
+  </head>
+  <body></body>
+</html>

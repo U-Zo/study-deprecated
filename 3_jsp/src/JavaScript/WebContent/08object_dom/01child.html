@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>애기</title>
+    <script>
+      var parent = window.opener;
+
+      function xxx() {
+        close();
+      }
+
+      function xxx2() {
+        parent.close();
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="xxx()">창닫기</button>
+    <button onclick="xxx2()">부모 창닫기</button>
+  </body>
+</html>

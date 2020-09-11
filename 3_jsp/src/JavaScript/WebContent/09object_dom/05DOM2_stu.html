@@ -3,14 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <title>Insert title here</title>
-    <script type="text/javascript"></script>
+    <script>
+      function xxx() {
+        const c = document.getElementsByName('fruits');
+        console.log(c);
+        let str = '';
+        for (let i = 0; i < c.length; i++) {
+          if (c[i].checked) str += c[i].value + ' ';
+        }
+
+        document.getElementById('result').innerHTML = str;
+      }
+    </script>
   </head>
   <body>
     좋아하는 &nbsp;&nbsp;&nbsp; 과일 선택하기<br />
     사과<input type="checkbox" name="fruits" value="apple" /><br />
     오렌지<input type="checkbox" name="fruits" value="orange" /><br />
     바나나<input type="checkbox" name="fruits" value="banana" /><br />
-    <button>결과보기</button>
+    <button onclick="xxx()">결과보기</button>
     <div id="result"></div>
   </body>
 </html>

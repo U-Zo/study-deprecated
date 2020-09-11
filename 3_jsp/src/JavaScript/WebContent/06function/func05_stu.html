@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 자바에서 배열은
+      // [val1, val2, val3] 이런식으로 입력해
+
+      function even(arr) {
+        var result = 0;
+
+        for (var n in arr) {
+          if (arr[n] % 2 === 0) {
+            result += arr[n];
+          }
+        }
+
+        return result;
+      }
+
+      var mesg = even([1, 2, 3, 4, 5]);
+      console.log(mesg);
+    </script>
+  </head>
+  <body></body>
+</html>

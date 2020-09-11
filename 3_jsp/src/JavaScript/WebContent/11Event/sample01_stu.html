@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>sample01</title>
+    <script>
+      window.onload = function () {
+        const quantity = document.querySelector('#quantity');
+        document.querySelector('#up').onclick = function () {
+          quantity.value = parseInt(quantity.value) + 1;
+        };
+        document.querySelector('#down').onclick = function () {
+          quantity.value = parseInt(quantity.value) - 1;
+        };
+      };
+    </script>
+  </head>
+  <body>
+    갯수<input type="text" name="quantity" id="quantity" value="1" />
+    <button id="up">+</button><button id="down">-</button>
+  </body>
+</html>

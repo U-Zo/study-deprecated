@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = () => {
+        const calc = document.getElementById('calc');
+
+        calc.addEventListener('click', () => {
+          const val1 = document.getElementById('val1').value;
+          const val2 = document.getElementById('val2').value;
+
+          document.getElementById('input_result').value =
+            parseInt(val1) + parseInt(val2);
+        });
+
+        const total1 = document.getElementById('total1');
+
+        const price = document.getElementById('price');
+        const quantity = document.getElementById('quantity');
+        price.addEventListener('keyup', () => {
+          total1.innerHTML = parseInt(price.value) * parseInt(quantity.value);
+        });
+        quantity.addEventListener('change', () => {
+          total1.innerHTML = parseInt(price.value) * parseInt(quantity.value);
+        });
+
+        const fruits = document.getElementsByName('fruits');
+        const calc_total = document.getElementById('calc_total');
+
+        calc_total.addEventListener('click', () => {
+          let total2_value = 0;
+          console.log(fruits);
+          for (const i in fruits) {
+            console.log(fruits[i]);
+            if (fruits[i].checked) {
+              total2_value += parseInt(fruits[i].value);
+            }
+            document.getElementById('total2').innerHTML = total2_value;
+          }
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <h2>1. +연산</h2>
+    <div>
+      <input id="val1" type="text" /> + <input id="val2" type="text" /> =
+      <input id="input_result" type="text" />
+      <button id="calc">연산</button>
+    </div>
+    <h2>2. 총합 구하기</h2>
+    <div>
+      가격<input type="text" id="price" /> X 수량<select id="quantity">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+      총합: <span id="total1"></span>
+    </div>
+    <h2>3. 총합 구하기2 (선택된 값만)</h2>
+    바나나(1000원)<input type="checkbox" name="fruits" value="1000" /><br />
+    사과(500원)<input type="checkbox" name="fruits" value="500" /><br />
+    배(1500원)<input type="checkbox" name="fruits" value="1500" /><button
+      id="calc_total"
+    >
+      총합 구하기</button
+    ><br />
+    선택한 총 가격: <span id="total2"></span>
+  </body>
+</html>

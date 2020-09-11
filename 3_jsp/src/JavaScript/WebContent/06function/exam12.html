@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function aaa() {
+        // aaa 이름의 함수
+        console.log('aaa 함수');
+      }
+
+      function bbb(x) {
+        // bbb 이름의 함수
+        // x 를 매개변수로 받아
+        console.log('bbb 함수');
+        console.log(x);
+        x();
+      }
+
+      bbb(aaa);
+    </script>
+  </head>
+  <body></body>
+</html>

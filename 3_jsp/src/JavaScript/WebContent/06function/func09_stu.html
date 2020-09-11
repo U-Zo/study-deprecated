@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function xyz(string) {
+        var upper = string.toUpperCase();
+        var lower = string.toLowerCase();
+        var reverse = '';
+
+        for (var i = string.length - 1; i >= 0; i--) {
+          reverse += string[i];
+        }
+
+        return upper + ' ' + lower + ' ' + reverse;
+      }
+
+      var data = xyz('AbCDeF');
+      console.log('데이터\n' + data);
+    </script>
+  </head>
+  <body></body>
+</html>

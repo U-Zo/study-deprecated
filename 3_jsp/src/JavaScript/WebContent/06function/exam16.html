@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var a = function () {
+        console.log('호출');
+        return 100;
+      };
+
+      var x1 = a;
+      var x2 = a();
+
+      function k(x) {
+        console.log('k 호출', x);
+        x();
+      }
+
+      k(x1);
+
+      var p = function () {
+        console.log('p 호출');
+      };
+
+      k(p);
+
+      function t() {
+        console.log('t 호출');
+        return e;
+      }
+
+      var e = function () {
+        console.log('e 호출');
+      };
+
+      k = t();
+      k();
+    </script>
+  </head>
+  <body></body>
+</html>

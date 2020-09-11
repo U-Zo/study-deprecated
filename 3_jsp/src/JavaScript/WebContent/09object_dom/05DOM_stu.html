@@ -3,10 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <title>Insert title here</title>
-    <script type="text/javascript"></script>
+    <script>
+      const f = () => {
+        const ssn1 = document.getElementById('ssn1').value;
+        console.log(ssn1);
+        if (ssn1.length === 6) {
+          document.getElementById('ssn2').focus();
+        }
+
+        const ssn2 = document.getElementById('ssn2').value;
+        document.getElementById('result').innerText = `${ssn1} - ${ssn2}`;
+      };
+    </script>
   </head>
   <body>
-    주민번호<input type="text" id="ssn1" name="ssn1" />-
-    <input type="text" id="ssn2" name="ssn2" />
+    주민번호<input type="text" id="ssn1" name="ssn1" onkeyup="f()" />-
+    <input type="text" id="ssn2" name="ssn2" onkeyup="f()" />
+    <span id="result"></span>
   </body>
 </html>

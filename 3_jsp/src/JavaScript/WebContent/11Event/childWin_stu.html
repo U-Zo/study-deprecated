@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>child1</title>
+    <script>
+      const a = () => {
+        window.close();
+      };
+
+      const b = () => {
+        opener.close();
+      };
+    </script>
+  </head>
+  <body>
+    <button onClick="a()">현재창 닫기</button>
+    <button onClick="b()">부모창 닫기</button>
+  </body>
+</html>

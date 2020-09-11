@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = () => {
+        const xxx = document.getElementById('xxx');
+        const myForm = document.getElementById('myForm');
+
+        xxx.addEventListener('click', () => {
+          console.log('버튼 클릭');
+        });
+
+        myForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          console.log('submit 취소');
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <form action="target.html" id="myForm">
+      아이디<input type="text" name="userid" /><br />
+      비번<input type="text" name="passwd" /><br />
+      <input type="submit" value="로그인" />
+      <input type="reset" value="취소" /><br />
+    </form>
+    <button id="xxx">클릭</button>
+  </body>
+</html>

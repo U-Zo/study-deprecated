@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function xxx(e) {
+        alert('submit');
+      }
+
+      function xxx2() {
+        const id = document.getElementById('userid').value;
+        const passwd = document.getElementById('passwd').value;
+        let result = false;
+        if (id.length >= 3 && passwd.length !== 0) {
+          result = true;
+        } else {
+          alert('에러');
+        }
+
+        return result;
+      }
+
+      function xxx3(e) {
+        alert('submit');
+        e.preventDefault();
+      }
+    </script>
+  </head>
+  <body>
+    <form action="target.html" onsubmit="xxx(event)">
+      아이디<input type="text" name="userid" /><br />
+      비번<input type="text" name="passwd" /><br />
+      <input type="submit" value="로그인" />
+      <input type="reset" value="취소" /><br />
+    </form>
+    <form action="target.html" onsubmit="return  xxx2()">
+      <!-- 주의 -->
+      아이디<input type="text" name="userid" id="userid" /><br />
+      비번<input type="text" name="passwd" id="passwd" /><br />
+      <input type="submit" value="로그인" /><br />
+    </form>
+    <form action="target.html" onsubmit="xxx3(event)">
+      <!-- 주의 -->
+      아이디<input type="text" name="userid" id="userid" /><br />
+      비번<input type="text" name="passwd" id="passwd" /><br />
+      <input type="submit" value="로그인" /><br />
+    </form>
+    <form action="target.html" id="test">
+      <!-- 주의  -->
+      아이디<input type="text" name="userid" /><br />
+      비번<input type="text" name="passwd" /><br />
+      <input type="submit" value="로그인" /><br />
+    </form>
+  </body>
+</html>

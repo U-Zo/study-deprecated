@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = () => {
+        const allCheck = document.querySelector('#allCheck');
+        const checkBoxes = document.querySelectorAll('.fruits');
+        const button = document.querySelector('#test');
+        const result = document.querySelector('#result');
+
+        allCheck.addEventListener('change', () => {
+          for (const i in checkBoxes) {
+            checkBoxes[i].checked = allCheck.checked;
+          }
+        });
+
+        button.addEventListener('click', () => {
+          let str = '';
+          for (let i = 0; i < checkBoxes.length; i++) {
+            if (checkBoxes[i].checked) {
+              str += `${checkBoxes[i].value} `;
+            }
+          }
+
+          result.innerHTML = str;
+        });
+      };
+    </script>
+  </head>
+  <body>
+    전체선택<input type="checkbox" name="allCheck" id="allCheck" /><br />
+    <hr />
+    사과<input
+      type="checkbox"
+      name="fruits"
+      class="fruits"
+      value="사과"
+    /><br />
+    수박<input
+      type="checkbox"
+      name="fruits"
+      class="fruits"
+      value="수박"
+    /><br />
+    바나나<input
+      type="checkbox"
+      name="fruits"
+      class="fruits"
+      value="바나나"
+    /><br />
+    오렌지<input
+      type="checkbox"
+      name="fruits"
+      class="fruits"
+      value="오렌지"
+    /><br />
+    <button id="test">확인</button>
+    <span id="result"> </span>
+  </body>
+</html>

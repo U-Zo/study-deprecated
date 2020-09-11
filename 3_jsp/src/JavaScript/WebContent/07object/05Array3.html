@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <script type="text/javascript">
+      // 배열 생성방법
+
+      var a = [10, 20, 30];
+      a.push(100);
+      a.pop();
+      for (var i in a) {
+        console.log(a[i]);
+      }
+      a.reverse(); //거꾸로
+      for (var i in a) {
+        console.log('>>', a[i]);
+      }
+      var b = a.slice(0, 2);
+      console.log(b);
+
+      //
+      var x = ['A', 'B', 'C'];
+      console.log(x.indexOf('A'));
+
+      x.splice(0, 2, 'X', 'y'); // 0위치부터 2개삭제하고 x,y 저장
+      for (var i in x) {
+        console.log('##', x[i]);
+      }
+
+      x.splice(2, 0, 'KKKK'); //2위치부터 0개삭제하고 kkkk 저장
+      console.log(x);
+
+      x.splice(0, 2); // 0부터 2개 삭제
+      console.log(x);
+
+      x.splice(1, 1, 'AAAA'); // 1부터 1개 삭제하고 AAAA 저장
+      console.log(x);
+
+      //정렬
+      var y = [10, 3, 54, 1, 44, 33];
+      y.sort();
+      console.log(y);
+
+      y.sort(function (a, b) {
+        return a - b; //오름차순
+      });
+      console.log(y);
+
+      y.sort(function (a, b) {
+        return b - a; //내림차순
+      });
+      console.log(y);
+
+      //join
+      var fruits = ['banana', 'apple', 'melon'];
+      var xxx = fruits.join(' and ');
+      console.log(xxx);
+    </script>
+  </head>
+  <body></body>
+</html>

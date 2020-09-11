@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <script>
+    function formSubmit() {
+      const inputs = document.querySelectorAll('input[type="text"]');
+      const spans = document.querySelectorAll('span');
+      for (let i in inputs) {
+        if (inputs[i].value.length === 0) {
+          spans[i].innerHTML = '에러';
+          return false;
+        } else {
+          spans[i].innerHTML = '';
+        }
+      }
+    }
+  </script>
+  <body>
+    <form action="target.html" onsubmit="return formSubmit()">
+      아이디<input type="text" name="userid" id="userid" />
+      <span id="idSpan"></span><br />
+      비번<input type="text" name="passwd" id="passwd" />
+      <span id="pwSpan"></span><br />
+      이름<input type="text" name="username" id="username" />
+      <span id="nameSpan"></span><br />
+      이메일<input type="text" name="email" id="email" />
+      <span id="emailSpan"></span><br />
+      <input type="submit" value="로그인" />
+      <input type="reset" value="취소" /><br />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = () => {
+        const check = document.getElementById('chk');
+        const addr1 = document.getElementById('address');
+        const addr2 = document.getElementById('address2');
+
+        check.addEventListener('change', () => {
+          addr2.value = addr1.value;
+        });
+
+        addr2.addEventListener('keyup', () => {
+          document.getElementById('test').innerHTML = addr2.value;
+        });
+      };
+    </script>
+  </head>
+  <body>
+    회원주소
+    <input type="text" name="address" id="address" value="공주~~~~" /><br />
+    배송지가 같으면 다음을 체크하세요
+    <input type="checkbox" name="chk" id="chk" /><br />
+    배송지 주소
+    <input type="text" name="address2" id="address2" /><br />
+    <span id="test"></span>
+  </body>
+</html>

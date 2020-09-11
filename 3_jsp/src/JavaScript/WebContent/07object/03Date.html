@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <script type="text/javascript">
+      // 날짜 생성
+      var d = new Date();
+      console.log(d);
+      console.log('1970/1/1~현재', d.valueOf());
+      console.log('년도', d.getFullYear()); //getYear() deprecated
+      console.log('월', d.getMonth() + 1); // +1 해야 우리가 아는 월이 나옴
+      console.log('일', d.getDate());
+      console.log('시간', d.getHours());
+      console.log('분', d.getMinutes());
+      console.log('초', d.getSeconds());
+      //변경
+      d.setFullYear(2020);
+      d.setMonth(7);
+      d.setDate(20);
+      console.log(d);
+
+      //요일 구하기
+      var dd = new Date();
+      var str;
+      switch (dd.getDay()) {
+        case 0:
+          str = '일요일';
+          break;
+        case 1:
+          str = '월요일';
+          break;
+        case 2:
+          str = '화요일';
+          break;
+        case 3:
+          str = '수요일';
+          break;
+        case 4:
+          str = '목요일';
+          break;
+        default:
+          str = '주말';
+          break;
+          break;
+      }
+      console.log('오늘은 ' + str);
+
+      var hours = d.getHours();
+      var minute = d.getMinutes();
+      var sec = d.getSeconds();
+      console.log(hours + '시 \t' + minute + '분 \t' + sec + ' 초');
+    </script>
+  </head>
+  <body></body>
+</html>

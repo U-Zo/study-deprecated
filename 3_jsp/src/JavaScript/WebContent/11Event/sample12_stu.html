@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = () => {
+        const select = document.querySelector('select');
+        const result = document.querySelector('#result');
+
+        select.addEventListener('change', () => {
+          result.style.fontSize = select.value;
+        });
+      };
+    </script>
+  </head>
+  <body>
+    글꼴크기:
+    <select>
+      <option value="16px">16px</option>
+      <option value="32px">32px</option>
+      <option value="40px">40px</option>
+      <option value="56px">56px</option>
+    </select>
+    <div id="result">안녕하세요.</div>
+  </body>
+</html>

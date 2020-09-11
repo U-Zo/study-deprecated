@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function init() {
+        console.log('모든 html이 모두 DOM으로 생성된 후 실행');
+      }
+
+      function xxx() {
+        console.log('xxx() 호출');
+      }
+
+      function yyy() {
+        console.log('onmouseover');
+      }
+
+      function zzz() {
+        console.log('onmouseout');
+      }
+
+      function kkk() {
+        console.log('onkeyup');
+      }
+
+      function xyz(e) {
+        console.log(e, e.screenX, e.screenY);
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <button onclick="xxx()" onmouseover="yyy()" onmouseout="zzz()">클릭</button>
+    <input type="text" name="userid" onkeyup="kkk(this.value)" />
+    <button onclick="xyz(event)">이벤트 정보</button>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = () => {
+        const myForm = document.querySelector('form');
+        const userid = document.querySelector('#userid');
+        const passwd = document.querySelector('#passwd');
+        const id_span = document.querySelector('#id_span');
+        const pass_span = document.querySelector('#pass_span');
+
+        userid.addEventListener('keyup', (e) => {
+          if (userid.value.length > 5) {
+            passwd.focus();
+          }
+        });
+
+        myForm.addEventListener('submit', (e) => {
+          id_span.innerHTML = '';
+          pass_span.innerHTML = '';
+
+          if (userid.value.length === 0) {
+            e.preventDefault();
+            document.querySelector('#id_span').innerHTML =
+              '아이디를 입력해주세요.';
+            userid.focus();
+          }
+
+          if (passwd.value.length === 0) {
+            e.preventDefault();
+            document.querySelector('#pass_span').innerHTML =
+              '비밀번호를 입력해주세요.';
+            passwd.focus();
+          }
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <form action="success.html">
+      아이디<input type="text" name="userid" id="userid" /><span
+        id="id_span"
+      ></span
+      ><br />
+      비밀번호<input type="text" name="passwd" id="passwd" /><span
+        id="pass_span"
+      ></span
+      ><br />
+      <input type="submit" value="로그인" />
+    </form>
+  </body>
+</html>

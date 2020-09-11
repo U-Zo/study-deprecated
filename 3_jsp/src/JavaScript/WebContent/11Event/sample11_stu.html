@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sample11</title>
+    <script>
+      window.onload = () => {
+        const buttons = document.querySelectorAll('button');
+        buttons[0].addEventListener('click', up);
+        buttons[1].addEventListener('click', down);
+      };
+
+      let fontSize = 16;
+
+      function up() {
+        const result = document.querySelector('#result');
+        fontSize += 16;
+        result.style.fontSize = `${fontSize}px`;
+      }
+
+      function down() {
+        const result = document.querySelector('#result');
+        if (fontSize > 16) fontSize -= 16;
+        result.style.fontSize = `${fontSize}px`;
+      }
+    </script>
+  </head>
+  <body>
+    <button>+</button><button>-</button>
+    <div id="result">안녕하세요.</div>
+  </body>
+</html>

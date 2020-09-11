@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <script type="text/javascript">
+      // 배열 생성방법
+      var a = new Array('A', 'B', 'C', 10, true);
+      console.log('배열길이', a.length);
+      console.log('요소 구하기', a[0], a[1], a[2], a[3], a[4]);
+
+      var b = new Array();
+      b[0] = 'AAA';
+      b[1] = 'BBB';
+      b[2] = 'CCC';
+      console.log('요소 구하기', b[0], b[1], b[2]);
+
+      var c = new Array();
+      c.push(10);
+      c.push(20);
+      c.push(30);
+      c.push(40);
+
+      console.log('요소 구하기', c[0], c[1], c[2], c[3]);
+
+      //반복문
+      for (var i = 0; i < c.length; i++) {
+        console.log('>>', c[i]);
+      }
+      for (var i in c) {
+        console.log(c[i]);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

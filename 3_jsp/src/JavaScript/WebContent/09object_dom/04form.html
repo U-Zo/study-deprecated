@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function test() {
+        // event.preventDefault(); // event 무시
+        var myForm = document.getElementById('test'); // id가 test인 태그의 DOM 객체
+        myForm.action = 'target.html'; // DOM 객체의 action 속성의 값을 'target.html' 으로 지정
+
+        return false; // return을 사용하여 event 무시
+      }
+    </script>
+  </head>
+  <body>
+    <!--return을 태그에 붙이면 함수의 return에 따라 event 수행-->
+    <form id="test" onsubmit="return test()">
+      <button>전송</button>
+    </form>
+  </body>
+</html>

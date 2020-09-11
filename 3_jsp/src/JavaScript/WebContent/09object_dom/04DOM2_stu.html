@@ -3,12 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <title>Insert title here</title>
-    <script type="text/javascript"></script>
+    <script>
+      function sum(a) {
+        const price = document.getElementById('price').value;
+        // const quantity = document.getElementById('quantity').value;
+        const quantity = a.value;
+        document.getElementById('totalPrice').value =
+          parseInt(price) * parseInt(quantity);
+      }
+    </script>
   </head>
   <body>
     가격<input type="text" name="price" id="price" /><br />
     수량
-    <select id="quantity">
+    <!--태그(노드) 자신-->
+    <select name="quantity" id="quantity" onchange="sum(this)">
       <option value="10">10</option>
       <option value="20">20</option>
       <option value="30">30</option>

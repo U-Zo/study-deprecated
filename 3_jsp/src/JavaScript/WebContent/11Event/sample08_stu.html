@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <script>
+      window.onload = () => {
+        const passwd = document.querySelector('#passwd');
+        const passwdCon = document.querySelector('#passwd1');
+        const result = document.querySelector('#result');
+        passwdCon.addEventListener('keyup', () => {
+          if (passwd.value !== passwdCon.value) {
+            result.innerHTML = '비밀번호 불일치';
+          } else {
+            result.innerHTML = '';
+          }
+        });
+      };
+    </script>
+  </head>
+  <body>
+    비밀번호 확인 구현<br />
+    비밀번호<input type="text" name="passwd" id="passwd" /><br />
+    비밀번호 재확인<input type="text" name="passwd1" id="passwd1" />
+    <span id="result"></span>
+  </body>
+</html>

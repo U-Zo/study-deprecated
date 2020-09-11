@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>func13</title>
+    <script>
+      var arr = [11, 33, 5, 2, 54];
+      var m = Math.max(...arr);
+      console.log('최대값', m);
+
+      document.write('<p>최대값: ' + m + '</p>');
+
+      function asc(array) {
+        for (var i = 0; i < array.length; i++) {
+          for (var j = i; j < array.length; j++) {
+            if (arr[i] > arr[j]) {
+              var temp = arr[i];
+              arr[i] = arr[j];
+              arr[j] = temp;
+            }
+          }
+        }
+
+        return array;
+      }
+
+      m = asc(arr);
+      console.log(m);
+      for (var i in arr) {
+        document.write('<p>배열 값: ' + arr[i] + '</p>');
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

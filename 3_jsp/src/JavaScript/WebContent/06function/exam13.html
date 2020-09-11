@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function a() {
+        console.log('a 함수');
+      }
+
+      function b() {
+        console.log('b 함수');
+        return a; // a 함수를 반환
+      }
+
+      function c() {
+        console.log('c 함수');
+
+        return function (n1, n2) {
+          // n1과 n2를 더하는 함수를 반환
+          return n1 + n2;
+        };
+      }
+
+      var x = b();
+      console.log(x);
+      x();
+      x = c();
+
+      var result = x(1, 2);
+      console.log(x);
+      console.log(result);
+    </script>
+  </head>
+  <body></body>
+</html>

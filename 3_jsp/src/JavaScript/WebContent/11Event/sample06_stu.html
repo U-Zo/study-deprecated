@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sample06</title>
+    <script>
+      window.onload = () => {
+        const selectNode = document.querySelector('select');
+        const img = document.querySelector('img');
+
+        selectNode.addEventListener('change', () => {
+          img.src = selectNode.value;
+        });
+      };
+    </script>
+  </head>
+  <body>
+    이미지선택하기<br />
+    <select>
+      <option value="a.jpg">a.jpg</option>
+      <option value="b.jpg">b.jpg</option>
+      <option value="c.jpg">c.jpg</option>
+    </select>
+    <img src="a.jpg" width="100" height="100" id="my" />
+  </body>
+</html>

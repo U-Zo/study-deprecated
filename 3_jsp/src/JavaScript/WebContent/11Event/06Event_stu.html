@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript">
+      let itemList = [];
+
+      window.onload = function () {
+        const addBtr = document.querySelector('#add');
+        addBtr.addEventListener('click', addList);
+
+        function addList() {
+          const item = document.getElementById('item').value;
+          if (item != null) {
+            itemList.push(item);
+            document.getElementById('item').value = '';
+            document.getElementById('item').focus();
+          }
+          showList();
+          console.log(itemList);
+        }
+
+        function showList() {
+          let list = '<ul>';
+          for (let i = 0; i < itemList.length; i++) {
+            list += '<li>' + itemList[i] + '</li>';
+          }
+          list += '</ul>';
+          document.getElementById('itemList').innerHTML = list;
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <form>
+      <input type="text" id="item" autofocus="true" />
+      <button type="button" id="add" class="button">추가</button><br />
+      <div id="itemList"></div>
+    </form>
+  </body>
+</html>
