@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <script>
+      const onSubmit = () => {
+        const userid = document.getElementById('userid').value;
+        const passwd = document.getElementById('passwd').value;
+        if (userid.length === 0 || passwd.length === 0) {
+          event.preventDefault();
+          alert('아이디와 비밀번호를 확인해주세요.');
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <h1>로그인폼</h1>
+    <form action="myLogin" method="POST" onsubmit="onSubmit()">
+      아이디:<input type="text" name="userid" id="userid" /><br />
+      비밀번호:<input type="text" name="passwd" id="passwd" /><br />
+      <input type="submit" value="로그인" />
+    </form>
+    <a href="myLogin?userid=홍길동&passwd=1234">로그인 서블릿 호출</a>
+  </body>
+</html>
