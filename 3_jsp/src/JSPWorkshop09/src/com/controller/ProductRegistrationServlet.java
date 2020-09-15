@@ -2,7 +2,7 @@ package com.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/productReg")
 public class ProductRegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private HashMap<String, Product> products = new HashMap<String, Product>();
+	private ArrayList<Product> products = new ArrayList<Product>();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -23,12 +23,18 @@ public class ProductRegistrationServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		int amount = Integer.parseInt(request.getParameter("amount"));
 		
-		Product product = products.get(id);
-		if (product == null) {
-			product = new Product(name, id, amount);
-			products.put(id, product);
-		} else {
-			product.setAmount(product.getAmount() + amount);
+		Product p = null;
+		for (Product product : products) {
+			if (product.getId().equals(id)) {
+				p = product;
+				p.setAmount(p.getAmount() + amount);
+				break;
+			}
+		}
+		
+		if (p == null) {
+			p = new Product(name, id, amount);
+			products.add(p);
 		}
 		
 		response.setContentType("text/html; charset=utf-8");
@@ -41,14 +47,15 @@ public class ProductRegistrationServlet extends HttpServlet {
 				+ "<th>수량</th>"
 				+ "</tr>");
 		
-		for (Product p : products.values()) {
-			String _name = p.getName();
-			String _id = p.getId();
-			int _amount = p.getAmount();
+		for (Product product : products) {
+			String _name = product.getName();
+			String _id = product.getId();
+			int _amount = product.getAmount();
+			
 			out.print("<tr>"
-					+ "<td>" + _name + "</td>"
-					+ "<td>" + _id + "</td>"
-					+ "<td>" + _amount + "</td>"
+						+ "<td>" + _name + "</td>"
+						+ "<td>" + _id + "</td>"
+						+ "<td>" + _amount + "</td>"
 					+ "</tr>");
 		}
 		

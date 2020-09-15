@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="JSPWorkshop10:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>JSPWorkshop10</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="JSPWorkshop10-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="JSPWorkshop10:war exploded" />
+    </root>
+  </artifact>
+</component>
