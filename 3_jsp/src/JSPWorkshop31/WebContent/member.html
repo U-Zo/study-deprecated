@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사원 등록</title>
+  </head>
+  <body>
+    <p><b>[ 사원 등록 ]</b></p>
+    <hr />
+    <form action="add.jsp" method="POST">
+      <table border="1">
+        <tr>
+          <th>사원번호</th>
+          <td><input type="text" name="empno" value="1000" readonly /></td>
+        </tr>
+        <tr>
+          <th>사원이름</th>
+          <td><input type="text" name="ename" /></td>
+        </tr>
+        <tr>
+          <th>직업</th>
+          <td>
+            <select name="job">
+              <option value="CLERK">CLERK</option>
+              <option value="MANAGER">MANAGER</option>
+              <option value="ANALYST">ANALYST</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <th>관리자</th>
+          <td><input type="text" name="mgr" value="7962" readonly /></td>
+        </tr>
+        <tr>
+          <th>입사일</th>
+          <td>입사일은 오늘 날짜</td>
+        </tr>
+        <tr>
+          <th>월급</th>
+          <td><input type="text" name="sal" value="1500" readonly /></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="submit" value="사원등록" />
+            <input type="reset" value="다시입력" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <a href="EmpListServlet">목록보기</a>
+  </body>
+</html>
