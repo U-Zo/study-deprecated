@@ -1,5 +1,6 @@
 package com.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -9,6 +10,7 @@ import com.dao.MyProductDAO;
 import com.dto.MyProductDTO;
 
 public class MyProductService {
+
     private MyProductDAO dao;
 
     public MyProductService() {
@@ -16,19 +18,19 @@ public class MyProductService {
     }
 
     public List<MyProductDTO> select() {
-        SqlSession session = MySqlSessionFactory.getSqlSession();
+        SqlSession session = MySqlSessionFactory.getSession();
         List<MyProductDTO> list = null;
         try {
             list = dao.select(session);
         } finally {
             session.close();
         }
-
+        
         return list;
-    }
-    
+    } // end select
+
     public int delete(String prodId) {
-        SqlSession session = MySqlSessionFactory.getSqlSession();
+        SqlSession session = MySqlSessionFactory.getSession();
         int n = 0;
         try {
             n = dao.delete(session, prodId);
@@ -38,10 +40,10 @@ public class MyProductService {
         }
         
         return n;
-    }
-    
+    } // end select
+
     public int deleteAll(List<String> list) {
-        SqlSession session = MySqlSessionFactory.getSqlSession();
+        SqlSession session = MySqlSessionFactory.getSession();
         int n = 0;
         try {
             n = dao.deleteAll(session, list);
@@ -51,5 +53,18 @@ public class MyProductService {
         }
         
         return n;
-    }
+    } // end select
+
+    public int updateProduct(HashMap<String, Object> map) {
+        SqlSession session = MySqlSessionFactory.getSession();
+        int n = 0;
+        try {
+            n = dao.updateProduct(session, map);
+            session.commit();
+        } finally {
+            session.close();
+        }
+        
+        return n;
+    } // end select
 }

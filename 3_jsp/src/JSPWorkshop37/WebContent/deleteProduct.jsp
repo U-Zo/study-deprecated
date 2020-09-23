@@ -1,15 +1,11 @@
+<%@page import="com.dto.MyProductDTO"%>
 <%@page import="com.service.MyProductService"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%
-String userid = (String) session.getAttribute("userid");
-if (userid == null) {
-    response.sendRedirect("error.jsp");
-}
-
-request.setCharacterEncoding("utf-8");
 String prodId = request.getParameter("prodId");
-
 MyProductService service = new MyProductService();
 int n = service.delete(prodId);
 %>
@@ -20,7 +16,6 @@ int n = service.delete(prodId);
 <title>Insert title here</title>
 </head>
 <body>
-	<div>로그인 아이디: <%= userid %> <a href="LogoutServlet">로그아웃</a></div>
 	<%
 	if (n != 0) {
 	%>

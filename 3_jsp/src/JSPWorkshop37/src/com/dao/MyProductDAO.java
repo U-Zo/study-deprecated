@@ -1,5 +1,6 @@
 package com.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -7,19 +8,25 @@ import org.apache.ibatis.session.SqlSession;
 import com.dto.MyProductDTO;
 
 public class MyProductDAO {
+
     public List<MyProductDTO> select(SqlSession session) {
-        return session.selectList("com.dto.select");
+        List<MyProductDTO> list = session.selectList("com.dto.selectAll");
+        return list;
     }
-    
+
     public int delete(SqlSession session, String prodId) {
-        return session.delete("com.dto.deleteByProdId", prodId);
+
+        int n = session.delete("com.dto.deleteByProdId", prodId);
+        return n;
     }
-    
+
     public int deleteAll(SqlSession session, List<String> list) {
-        return session.delete("com.dto.deleteByAllProdId", list);
+
+        int n = session.delete("com.dto.deleteByAllProdId", list);
+        return n;
     }
-    
-    public int update(SqlSession session) {
-        return 0;
+
+    public int updateProduct(SqlSession session, HashMap<String, Object> map) {
+        return session.update("com.dto.updateByProdId", map);
     }
 }

@@ -1,87 +1,134 @@
 <%@page import="com.dto.MyProductDTO"%>
-<%@page import="java.util.List"%>
 <%@page import="com.service.MyProductService"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-String userid = (String) session.getAttribute("userid");
-if (userid == null) {
-    response.sendRedirect("error.jsp");
-}
-
-request.setCharacterEncoding("utf-8");
-
-MyProductService service = new MyProductService();
-List<MyProductDTO> list = service.select();
+	MyProductService service = new MyProductService();
+	List<MyProductDTO> list = service.select();
 %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Document</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <script type="text/javascript" src="jquery-3.1.0.js"></script>
 <script type="text/javascript">
-	const delProduct = prodId => {
-		event.preventDefault();
-		location.href = 'deleteProduct.jsp?prodId=' + prodId;
-	};
+    $(document).ready(function(){
+    	 $(".deleteProduct").on("click",function(event){
+    		 event.preventDefault();
+    		 console.log($(this).attr("id"));
+    	      location.href="deleteProduct.jsp?prodId="+$(this).attr("id");
+    	 }); 
 
-	const chk = node => {
-		const deleteList = document.getElementsByName('delCheck');
-		for (let deleteNode of deleteList) {
-			deleteNode.checked = node.checked;
+    	 
+    	 
+    	 $("#delCheckAll").on("click",function(event){
+   	         console.log(event.target.checked);
+    	    $(".delCheck").each(function(idx,ele){
+    		      $(this).prop("checked", event.target.checked);
+    	    });	 
+    		 
+   	     }); 
+    	 
+    	 $("form").on("submit",function(event){
+    		 this.action="deleteAllProduct.jsp";
+    		 this.method="GET";
+   	     });
+    	 
+    	 //개별 수정
+    	 $(".updateProduct").on("click",function(event){
+    		 event.preventDefault();
+    	     var prodId = $(this).attr("data-id");
+    	     var quantity = $("#quantity"+prodId).val();
+    	     $.ajax({
+    				type : "GET",
+    				url : "updateProduct.jsp",
+    				dataType : "text",
+    				data : {
+    					prodId : prodId,
+    					quantity : quantity
+    				},
+    				success : function(responseData, status, xhr) {
+    				     alert("갯수 수정 성공");
+    				},
+    				error : function(xhr, status, error) {
+    					console.log("error");
+    				}
+    			});
+   	     }); 
+    });
+
+</script> -->
+<script type="text/javascript">
+	function chk(n) {
+		const lang= document.querySelectorAll('.delCheck');
+		for(let i = 0; i < lang.length; i++){
+			lang[i].checked = n.checked;
 		}
-	};
-
-	const delAll = () => {
-		document.getElementById('delForm').action = "deleteAllProduct.jsp";
-	};
+	}
 	
-	const update = prodId => {
+	function delAll() {
+		document.querySelector("#delForm").action = 'deleteAllProduct.jsp';
+		document.querySelector("#delForm").submit;
+	}
+	
+	function delProduct(n) {
 		event.preventDefault();
-		const quantity = documet.getElementById('quantity' + prodId).value;
-		
-		location.href = 'updateProduct.jsp?prodId=' + prodId + '&quantity=' + quantity;
+		location.href = 'deleteProduct.jsp?prodId=' + n;
+	}
+	
+	function update(n){
+		event.preventDefault();
+		const quantity = document.querySelector('#quantity' + n).value;
+		location.href = 'updateProduct.jsp?prodId=' + n + '&quantity=' + quantity;
 	}
 </script>
 </head>
 <body>
-	<div>로그인 아이디: <%=userid%> <a href="LogoutServlet">로그아웃</a></div>
-	<form id="delForm">
+	<form>
 		<table border="1">
 			<tr>
-				<th><input onchange="chk(this)" type="checkbox" id="checkAll" />전체 선택</th>
-				<th>상품아이디</th>
-				<th>상품명</th>
-				<th>가격</th>
-				<th>갯수</th>
-				<th>삭제</th>
-				<th>수정</th>
+				<td>
+				<input type="checkbox" name="delCheckAll" id="delCheckAll"
+						onchange="chk(this)">
+					전체선택
+				</td>
+				<td>상풍아이디</td>
+				<td>상품명</td>
+				<td>가격</td>
+				<td>갯수</td>
+				<td>삭제</td>
+				<td>수정</td>
+				<td>합계</td>
 			</tr>
+
 			<%
-			for (MyProductDTO dto : list) {
+			for(MyProductDTO dto: list){
 			%>
-				<tr>
-					<td><input type="checkbox" name="delCheck" value="<%= dto.getProdId() %>" /></td>
-					<td><%= dto.getProdId() %></td>
-					<td><%= dto.getProdName() %></td>
-					<td><%= dto.getPrice() %></td>
-					<td>
-						<input type="text" id="quantity<%= dto.getProdId() %>"
-							name="quantity" value="<%= dto.getQuantity() %>" />
-					</td>
-					<td>
-						<button onclick="delProduct('<%= dto.getProdId() %>')">삭제</button>
-					</td>
-					<td>
-						<button onclick="update('<%= dto.getProdId() %>')">수정</button>
-					</td>
-				</tr>
+			<tr>
+				<td><input type="checkbox" name="delCheck" class="delCheck"
+					value="<%= dto.getProdId()%>"></td>
+				<td><%= dto.getProdId() %></td>
+				<td><%= dto.getProdName() %></td>
+				<td><%= dto.getPrice() %></td>
+				<td>
+				<input type="text" name="quantity" value="<%= dto.getQuantity() %>"
+						id="quantity<%= dto.getProdId() %>">
+				</td>
+				<!-- <td><button id="<%= dto.getProdId()%>" class="deleteProduct">삭제</button></td> -->
+				<td><button onclick="delProduct('<%= dto.getProdId() %>')">삭제</button></td>
+				<!-- <td><button data-id="<%= dto.getProdId()%>" class="updateProduct">수정</button></td> -->
+				<!-- <td><button data-id="<%= dto.getProdId()%>" class="updateProduct" onclick="update(<<%= dto.getProdId()%>)">수정</button></td> -->
+				<td><button onclick="update('<%= dto.getProdId() %>')">수정</button></td>
+				<td id="sum"></td>
+			</tr>
 			<%
 			}
 			%>
 		</table>
-		<button onclick="delAll()">선택된 항목 삭제</button>
+		<button id="deleteAllProduct" onclick="delAll()">선택된 항목 삭제</button>
 	</form>
 </body>
 </html>

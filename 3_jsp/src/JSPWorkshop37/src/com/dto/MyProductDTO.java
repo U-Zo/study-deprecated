@@ -1,12 +1,15 @@
 package com.dto;
 
 public class MyProductDTO {
+
     private String prodId;
     private String prodName;
     private int price;
     private int quantity;
 
     public MyProductDTO() {
+        super();
+        // TODO Auto-generated constructor stub
     }
 
     public MyProductDTO(String prodId, String prodName, int price, int quantity) {
@@ -48,4 +51,11 @@ public class MyProductDTO {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    @Override
+    public String toString() {
+        return "MyProductDTO [prodId=" + prodId + ", prodName=" + prodName + ", price=" + price + ", quantity="
+                + quantity + "]";
+    }
+
 }
