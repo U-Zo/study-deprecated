@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+      $(() => {
+        // let sum = 0;
+        // $('li').each((index, elem) => {
+        //   const v = parseInt($(elem).text());
+        //   console.log(v);
+        //   sum += v;
+        // });
+
+        // $('#result').text(sum);
+
+        const numbers = Array.from(document.querySelectorAll('li')).map(node =>
+          parseInt(node.innerHTML)
+        );
+
+        const result = document.getElementById('result');
+        result.innerHTML = numbers.reduce((acc, cur) => {
+          return acc + cur;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <ul>
+      <li>100</li>
+      <li>200</li>
+      <li>300</li>
+      <li>400</li>
+    </ul>
+    합계:
+    <div id="result"></div>
+  </body>
+</html>

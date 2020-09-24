@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+      $(() => {
+        $('#create').on('click', () => {
+          $('div').html('<button id="newButton">ok</button>');
+        });
+
+        document.querySelector('body').addEventListener('click', e => {
+          if (e.target.id === 'newButton') {
+            console.log('click');
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button id="create">new</button>
+    <div></div>
+  </body>
+</html>

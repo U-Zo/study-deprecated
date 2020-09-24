@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+      $(() => {
+        const arr = ['one', 'two', 'three', 'four', 'five'];
+        $.each(arr, (index, obj) => {
+          console.log(`index: ${index}\t value: ${obj}`);
+        });
+
+        const m = {
+          one: 1,
+          two: 2,
+          three: 3,
+          four: 4,
+          five: 5,
+        };
+
+        $.each(m, (key, obj) => {
+          console.log(`key: ${key}\t value: ${obj}`);
+        });
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

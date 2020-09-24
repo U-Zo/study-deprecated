@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+      $(() => {
+        const jsonString = '{"name": "홍길동", "age": 20, "address": "서울"}';
+        const jsonObject = $.parseJSON(jsonString);
+        const name = jsonObject.name;
+        const age = jsonObject.age;
+        const address = jsonObject.address;
+        $('#someElement').append(`name\tage\taddress`);
+      });
+    </script>
+  </head>
+  <body>
+    <p id="someElement"></p>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+      $(function () {
+        $(':button').css('border', '3px solid red');
+        $('#disabled').click(function () {
+          $('input[type="text"]:enabled').removeAttr('enabled');
+          $('input[type="text"]:enabled').attr('disabled', 'true');
+        });
+
+        $('#enable').click(function () {
+          $('input[type="text"]:disabled').removeAttr('disabled');
+          $('input[type="text"]:disabled').attr('enabled', 'true');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="text" id="first" />
+    <input type="text" id="second" />
+    <input type="button" value="enable" id="enable" />
+    <button id="disabled">disabled</button>
+  </body>
+</html>
