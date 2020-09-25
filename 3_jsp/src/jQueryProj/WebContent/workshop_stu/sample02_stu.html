@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+      $(() => {
+        $('button').click(e => {
+          let str = '';
+          $('input[name="hobby"]:checked').each((index, elem) => {
+            str += `${$(elem).val()} `;
+            $('#result').html(str);
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    취미<br />
+    <ul>
+      <li>야구<input type="checkbox" name="hobby" value="야구" /></li>
+      <li>농구<input type="checkbox" name="hobby" value="농구" /></li>
+      <li>게임<input type="checkbox" name="hobby" value="게임" /></li>
+    </ul>
+    <button>결과보기</button><br />
+    결과값:
+    <div id="result"></div>
+  </body>
+</html>

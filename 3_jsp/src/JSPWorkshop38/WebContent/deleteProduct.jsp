@@ -1,5 +1,5 @@
-<%@page import="com.dto.MyProductDTO"%>
-<%@page import="com.service.MyProductService"%>
+<%@page import="com.dto.EmpDTO"%>
+<%@page import="com.service.EmpService"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 
@@ -9,9 +9,8 @@
 <%
     String prodId = request.getParameter("prodId");
 
-     MyProductService service = new MyProductService();
+     EmpService service = new EmpService();
      int n = service.delete(prodId);
-
 %>    
     
 <!DOCTYPE html>

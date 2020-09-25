@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+      const imgs = ['a.jpg', 'b.jpg', 'c.jpg'];
+      let i = 0;
+
+      $(() => {
+        $('#prev').click(e => {
+          i--;
+          i < 0 && (i = 2);
+          $('img').attr('src', imgs[i]);
+          $('#result').html(imgs[i]);
+        });
+
+        $('#next').click(e => {
+          i++;
+          i > 2 && (i = 0);
+          $('img').attr('src', imgs[i]);
+          $('#result').html(imgs[i]);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    이미지 변경하기<br />
+    <img src="a.jpg" width="100" height="100" id="my" />
+    <button id="prev">이전</button>
+    <button id="next">다음</button><br />
+    이미지 파일명:<span id="result">a.jpg</span>
+  </body>
+</html>

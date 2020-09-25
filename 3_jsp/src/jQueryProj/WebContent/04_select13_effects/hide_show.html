@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+      $(() => {
+        $('#hider').click(() => {
+          $('span').hide('slow');
+        });
+
+        $('#shower').click(() => {
+          $('span').show(10000, () => {
+            $('#red').css('font-size', '30px');
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button id="hider">Hide</button>
+    <button id="shower">Show</button>
+    <div>
+      <span>이성계</span>
+      <span>이순신</span>
+      <span>유관순</span>
+      <span>강감찬</span>
+      <span>윤봉길</span>
+      <span>정도전</span>
+      <span>정몽주</span>
+      <span id="red">위인들...</span>
+    </div>
+  </body>
+</html>

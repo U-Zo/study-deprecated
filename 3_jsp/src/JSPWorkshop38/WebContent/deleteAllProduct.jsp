@@ -1,7 +1,7 @@
 <%@page import="java.util.Collections"%>
 <%@page import="java.util.Arrays"%>
-<%@page import="com.dto.MyProductDTO"%>
-<%@page import="com.service.MyProductService"%>
+<%@page import="com.dto.EmpDTO"%>
+<%@page import="com.service.EmpService"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 
@@ -11,9 +11,8 @@
 <%
     String [] prodIds = request.getParameterValues("delCheck");
     List<String> x = Arrays.asList(prodIds);
-     MyProductService service = new MyProductService();
+     EmpService service = new EmpService();
      int n = service.deleteAll(x);
-
 %>    
     
 <!DOCTYPE html>

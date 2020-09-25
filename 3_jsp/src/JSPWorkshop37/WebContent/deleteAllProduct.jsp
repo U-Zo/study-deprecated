@@ -1,12 +1,12 @@
-<%@page import="com.service.MyProductService"%>
+<%@page import="com.service.EmpService"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String [] prodIds = request.getParameterValues("delCheck");
+    String [] prodIds = request.getParameterValues("delCheck");
 	List<String> x = Arrays.asList(prodIds);
-	MyProductService service = new MyProductService();
+	EmpService service = new EmpService();
 	int n = service.deleteAll(x);
 %>
 <!DOCTYPE html>

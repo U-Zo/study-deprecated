@@ -1,5 +1,5 @@
-<%@page import="com.dto.MyProductDTO"%>
-<%@page import="com.service.MyProductService"%>
+<%@page import="com.dto.EmpDTO"%>
+<%@page import="com.service.EmpService"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 
@@ -7,8 +7,8 @@
 	pageEncoding="UTF-8"%>
 
 <%
-    MyProductService service = new MyProductService();
-List<MyProductDTO> list = service.select();
+    EmpService service = new EmpService();
+List<EmpDTO> list = service.select();
 %>
 
 <!DOCTYPE html>
@@ -68,7 +68,7 @@ List<MyProductDTO> list = service.select();
 				<td>수정</td>
 			</tr>
 			<%
-			for (MyProductDTO dto : list) {
+			    for (EmpDTO dto : list) {
 			%>
 			<tr>
 				<input type="hidden" name="price<%=dto.getProdId()%>"

@@ -1,12 +1,12 @@
 <%@page import="java.util.HashMap"%>
-<%@page import="com.service.MyProductService"%>
+<%@page import="com.service.EmpService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-String prodId = request.getParameter("prodId"); // 파싱
+    String prodId = request.getParameter("prodId"); // 파싱
 String quantity = request.getParameter("quantity");
 
-MyProductService service = new MyProductService();
+EmpService service = new EmpService();
 HashMap<String, Object> map = new HashMap<>();
 map.put("prodId", prodId);
 map.put("quantity", Integer.parseInt(quantity));
