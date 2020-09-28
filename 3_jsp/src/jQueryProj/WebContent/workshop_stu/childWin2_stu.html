@@ -1,23 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-
- $(document).ready(function() {
-
-     /*
- 	   코드 구현
-
- 	  */
-});
-</script>
-</head>
-<body>
- 아이디:<input type="text" name="userid" id="userid">
- <button id="a">아이디 사용 가능</button>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+      $(() => {
+        $('#userid').val(opener.$('#userid').val());
+        $('#a').click(e => {
+          opener.$('#userid').val($('#userid').val());
+          window.close();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    아이디:<input type="text" name="userid" id="userid" />
+    <button id="a">아이디 사용 가능</button>
+  </body>
 </html>

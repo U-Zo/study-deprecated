@@ -1,24 +1,21 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-  $(document).ready(function() {
-  
-	 	/*
-	   코드 구현
-
-	 */
-
-  });
-</script>
-</head>
-<body>
-주민번호:
-<input type="text" name="ssn1" id="ssn1">-
-<input type="text" name="ssn2" id="ssn2">
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+      $(() => {
+        $('#ssn1').keyup(e => {
+          $(e.target).val().length === 6 && $('#ssn2').focus();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    주민번호:
+    <input type="text" name="ssn1" id="ssn1" maxlength="6" />-
+    <input type="text" name="ssn2" id="ssn2" />
+  </body>
 </html>

@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-      
-      $(document).ready(function() {
-          
-  		/*
-		  코드 구현
-		
-		*/
-    	   
-    	});
-</script>
-</head>
-<body>
-<button>5</button>
-<button>10</button>
-<button>15</button><br>
-총합:<span id="result"></span>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+      $(() => {
+        $('button').each((index, elem) => {
+          $(elem).click(e => {
+            const value = parseInt($(e.target).html());
+            const result = (value * (value + 1)) / 2;
+            $('#result').html(result);
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button>5</button>
+    <button>10</button>
+    <button>15</button><br />
+    총합:<span id="result"></span>
+  </body>
 </html>

@@ -1,29 +1,25 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-
-     $(document).ready(function() {
-         
- 		/*
-		  코드 구현
-		
-		*/
-     	   
-     	});
-</script>
-</head>
-<body>
-이미지선택하기<br>
-<select>
- <option>a.jpg</option>
- <option>b.jpg</option>
- <option>c.jpg</option>
-</select>
-<img src="a.jpg" width="100" height="100" id="my">
-
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+      $(() => {
+        $('select').change(e => {
+          $('img').attr('src', $(e.target).val());
+        });
+      });
+    </script>
+  </head>
+  <body>
+    이미지선택하기<br />
+    <select>
+      <option value="a.jpg">a.jpg</option>
+      <option value="b.jpg">b.jpg</option>
+      <option value="c.jpg">c.jpg</option>
+    </select>
+    <img src="a.jpg" width="100" height="100" id="my" />
+  </body>
 </html>

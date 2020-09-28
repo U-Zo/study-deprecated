@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../jquery-3.5.1.min.js"></script>
+    <script>
+      $(() => {
+        $('#up').click(e => {
+          $('#result').css('font-size', '32px');
+        });
 
-$(document).ready(function() {
-
-   	/*
-	  코드 구현
-	
-	*/
-});
-
-</script>
-<body>
-	<button id="up">+</button>
-	<button id="down">-</button>
-	<div id="result">안녕하세요.</div>
-</body>
+        $('#down').click(e => {
+          $('#result').css('font-size', '16px');
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <button id="up">+</button>
+    <button id="down">-</button>
+    <div id="result">안녕하세요.</div>
+  </body>
 </html>
