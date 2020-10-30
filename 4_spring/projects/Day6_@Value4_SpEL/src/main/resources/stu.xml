@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config />
+
+    <bean id="firstStudent" class="com.dto.Student">
+        <property name="name" value="홍길동" />
+        <property name="age" value="20" />
+        <property name="married" value="true"/>
+        <property name="weight" value="78.4" />
+    </bean>
+
+    <bean id="stu" class="com.dto.Student">
+        <property name="name" value="#{firstStudent.name}" />
+        <property name="age" value="#{10 + 20}" />
+        <property name="married" value="#{!(10 > 4)}"/>
+        <property name="weight" value="#{78.6}" />
+    </bean>
+
+</beans>

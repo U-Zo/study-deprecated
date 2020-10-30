@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<!-- 고양이 빈생성 -->
+	<bean id="pet01" class="com.dto.Cat">
+		<property name="catName" value="나비" />
+		<property name="catAge" value="3" />
+	</bean>
+
+	<bean id="pet02" class="com.dto.Cat">
+		<property name="catName" value="하늘" />
+		<property name="catAge" value="2" />
+	</bean>
+
+	<util:properties id="test">
+		<prop key="one">010</prop>
+		<prop key="two">011</prop>
+		<prop key="three">017</prop>
+	</util:properties>
+
+	<util:properties id="jdbc"
+		location="classpath:com/config/jdbc.properties" />
+
+	<!-- student 빈생성 -->
+	<bean id="firstStudent" class="com.dto.Student">
+		<property name="phones">
+			<ref bean="jdbc" />
+		</property>
+		<property name="name" value="CrackCo"></property>
+		<property name="catMap">
+			<map>
+				<entry key="one" value-ref="pet01"></entry>
+				<entry key="two" value-ref="pet02"></entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>

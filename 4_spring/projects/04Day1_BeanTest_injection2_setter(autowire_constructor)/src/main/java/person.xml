@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="catBean" class="com.spring.Cat">
+		<property name="catAge" value="12"></property>
+		<property name="catName" value="야옹이"></property>
+	</bean>
+
+	<bean id="onePerson" class="com.spring.Person"
+		autowire="constructor">
+		<property name="username" value="홍길동"></property>
+		<!-- cat 자동 주입 -->
+	</bean>
+</beans>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- DeptDAO 생성 -->
+	<bean id="DeptDAO" class="com.dao.DeptDAO" />
+
+	<!-- DeptService의 public DeptService(DeptDAO dao) {...}호출 -->
+	<!-- DeptDAO 객체를 받아와 dao에 주입 -->
+	<bean id="DeptService" class="com.service.DeptService">
+		<constructor-arg name="dao" ref="DeptDAO" />
+	</bean>
+</beans>
