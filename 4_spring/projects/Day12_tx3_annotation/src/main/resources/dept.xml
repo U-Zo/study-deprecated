@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.*" />
+
+    <!-- 1.프로퍼티를 읽어서 datasource를 만들고 jdbc템플릿을 만든다 >> dao에 넣어주고 >> service에 넣어주고
+        >> 메인에서 getbean 호출 -->
+
+    <!-- <context:property-placeholder location="classpath:db.properties" /> -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+            <value>classpath:db.properties</value>
+        </property>
+    </bean>
+
+    <bean id="dataSource" destroy-method="close"
+          class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value="${driver}" />
+        <property name="url" value="${url}" />
+        <property name="username" value="${username}" />
+        <property name="password" value="${password}" />
+    </bean>
+
+    <!-- DataSourceTransactionManager 설정, DataSource 주입 tx설정 시작 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- Transaction 관련 어노테이션 활성화 및 관리 Manager 주입 -->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="false" />
+
+    <!-- jdbctemplate 생성 -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+    <!-- jdnc연동 dao 생성  template 주입 -->
+    <bean id="deptDAO" class="com.dao.ProductDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplate" />
+    </bean>
+    <!-- service 생성 dao 주입 main에서 사용 -->
+    <bean id="deptService" class="com.service.ProductService">
+        <property name="dao" ref="deptDAO" />
+    </bean>
+</beans>
