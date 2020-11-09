@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <context:component-scan base-package="com.*"/>
+    <context:annotation-config/><!--autowired 활성화-->
+    <context:property-placeholder location="jdbc.properties"/><!--placeholder을 이용하여 jdbc 4가지 정보 읽어옴-->
+
+    <!--dbcp2 생성: jdbc.properties 이용: connection pull-->
+    <bean id="myDataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.userid}"/>
+        <property name="password" value="${jdbc.passwd}"/>
+    </bean>
+    <!--testDAO bean 생성 -> @Component로 대체 -->
+    <!--<bean id="testDAO" class="com.dao.TestDAO"/>-->
+</beans>
