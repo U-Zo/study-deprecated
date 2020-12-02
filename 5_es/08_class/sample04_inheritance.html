@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class Employee {
+        constructor(name, sal) {
+          this.name = name;
+          this.sal = sal;
+        }
+
+        setName(name) {
+          this.name = name;
+        }
+
+        setSalary(salary) {
+          this.salary = salary;
+        }
+
+        getName() {
+          return this.name;
+        }
+
+        getSalary(salary) {
+          return this.salary;
+        }
+      }
+
+      class Manager extends Employee {
+        constructor(name, sal, depart) {
+          super(name, sal);
+          this.depart = depart;
+        }
+
+        setDepart(depart) {
+          this.depart = depart;
+        }
+
+        getDepart() {
+          return this.depart;
+        }
+      }
+
+      const man = new Manager();
+      man.setName('홍길동');
+      man.setSalary(1000000);
+      man.setDepart('인사');
+
+      console.log(man.getName());
+      console.log(man.getSalary());
+      console.log(man.getDepart());
+    </script>
+  </head>
+  <body></body>
+</html>

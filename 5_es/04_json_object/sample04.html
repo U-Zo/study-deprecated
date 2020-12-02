@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const person = {
+        name: '홍길동',
+        age: 20,
+
+        get getName() {
+          return this.name;
+        },
+
+        set setName(name) {
+          this.name = name;
+        },
+
+        get getAge() {
+          return this.age;
+        },
+
+        set setAge(age) {
+          this.age = age;
+        },
+      };
+
+      console.log(person.name, person.age);
+
+      person.setName = '이순신';
+      person.setAge = '44';
+
+      console.log(person.getName, person.getAge);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function aaa2(txt, exp) {
+        console.log(txt, txt[0], exp, txt[1]);
+      }
+
+      const mesg = '홍길동';
+      aaa2`world ${mesg}`;
+
+      const aaa3 = (txt, exp) => {
+        console.log(txt, txt[0], exp, txt[1]);
+      };
+
+      aaa3`happy ${mesg} !!`;
+
+      const aaa4 = (txt, exp) => {
+        console.log(txt, txt[0], exp, exp[1]);
+      };
+
+      aaa4`안녕하세요? ${mesg} !!! 건강하세요 ${mesg}`;
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const { a, b } = { a: 100, b: 200 };
+      console.log(a, b);
+
+      let a2, c;
+      ({ a2, c } = { a2: 100, c: 200 });
+      console.log(a2, c);
+
+      let { a3, c2 = 1000 } = { a3: 100, b: 200 };
+      console.log(a3, c2);
+
+      let { a4: aaa, b2: bbb } = { a4: 100, b2: 200 };
+      console.log('>>>>', aaa, bbb);
+
+      let x = { k: 100, k2: 200, ppp: { k3: 300 } };
+      let { k, k2, ppp } = x;
+      console.log(k, k2, ppp.k3);
+
+      function xxx({ a, b, c = 100 }) {
+        console.log(a + b, c);
+      }
+
+      xxx({ a: 100, b: 200 });
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function promise(param) {
+        return new Promise(function (resolve, reject) {
+          console.log('1');
+          // resolve();
+          reject();
+          console.log('2');
+        });
+      }
+
+      promise()
+        .then(
+          function () {
+            console.log('success1');
+          },
+          function () {
+            console.log('fail2');
+            reject(); // 여기서 reject라는 함수는 정의되지 않은 함수
+          }
+        )
+        .then(
+          function () {
+            console.log('success2');
+          },
+          function () {
+            console.log('fail2');
+          }
+        );
+      console.log('end');
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,3 @@
+class MyDate {
+  day: number;
+}

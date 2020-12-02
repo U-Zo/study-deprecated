@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let k = 'name';
+      let n = {
+        name: '홍길동',
+        age: 20,
+      };
+      console.log(n.name, n.age);
+
+      let x = 'username';
+      let x2 = 'userage';
+
+      let obj = {
+        x: '이순신',
+        x2: 20,
+      };
+      console.log(obj);
+
+      let obj2 = {
+        [x]: '이순신',
+        [x2]: 20,
+      };
+      console.log(obj2);
+
+      obj = {
+        sport1: '축구',
+        sport2: '야구',
+        sport3: '농구',
+      };
+      console.log(obj);
+
+      let s = 'sport';
+
+      obj2 = {
+        [s + 1]: '축구',
+        [s + 2]: '야구',
+        [s + 3]: '농구',
+      };
+      console.log(obj);
+
+      const obj3 = {
+        ['one' + 'two']: 100,
+      };
+      console.log(obj3);
+    </script>
+  </head>
+  <body></body>
+</html>

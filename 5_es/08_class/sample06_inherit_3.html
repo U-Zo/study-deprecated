@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class Employee {
+        constructor(name, sal) {
+          this.name = name;
+          this.sal = sal;
+          console.log('부모 생성자');
+        }
+
+        setName(name) {
+          this.name = name;
+        }
+
+        setSalary(sal) {
+          this.sal = sal;
+        }
+
+        getName() {
+          return this.name;
+        }
+
+        getSalary(salary) {
+          return this.sal;
+        }
+
+        getEmployee() {
+          return `${this.name}\t${this.sal}`;
+        }
+      }
+
+      class Manager extends Employee {
+        constructor(name, sal, depart) {
+          super(name, sal);
+          this.depart = depart;
+          console.log('자식 생성자');
+        }
+
+        setDepart(depart) {
+          this.depart = depart;
+        }
+
+        getDepart() {
+          return this.depart;
+        }
+
+        getEmployee() {
+          return `${this.name}\t${this.sal}\t${this.depart}`;
+        }
+      }
+
+      const man = new Manager('김우조', 10000, '인사');
+      console.log(man.getEmployee());
+    </script>
+  </head>
+  <body></body>
+</html>

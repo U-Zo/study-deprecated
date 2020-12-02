@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class Person {
+        constructor(name, age) {
+          console.log('constructor(name, age)');
+          this.name = name;
+          this.age = age;
+        }
+
+        setName(name) {
+          this.name = name;
+        }
+
+        setAge(age) {
+          this.age = age;
+        }
+
+        getName() {
+          return this.name;
+        }
+
+        getAge() {
+          return this.age;
+        }
+      }
+
+      const p1 = new Person('김우조', 5005000000000);
+      const p2 = new Person();
+      console.log(p1);
+      console.log(p2);
+    </script>
+  </head>
+  <body></body>
+</html>

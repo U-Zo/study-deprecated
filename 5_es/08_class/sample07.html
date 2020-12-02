@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class Employee {
+        constructor(name, salary) {
+          this.name = name;
+          this.salary = salary;
+        }
+
+        setName(name) {
+          this.name = name;
+        }
+
+        setSalary(salary) {
+          this.salary = salary;
+        }
+
+        getName() {
+          return this.name;
+        }
+
+        getSalary() {
+          return this.salary;
+        }
+
+        getEmployee() {
+          return `name = ${this.name}\nsalary = ${this.salary}`;
+        }
+
+        static getXXX() {
+          return 'world';
+        }
+      }
+
+      class Manager extends Employee {
+        constructor(name, salary, depart) {
+          super(name, salary);
+          this.depart = depart;
+        }
+
+        setDepart(depart) {
+          this.depart = depart;
+        }
+
+        getEmployee() {
+          return super.getEmployee() + `\ndepart = ${this.depart}`;
+        }
+      }
+
+      const emp = new Employee('홍길동', 1000);
+      console.log(emp.getEmployee());
+
+      const man = new Manager('이순신', 2000, '개발');
+      console.log(man.getEmployee());
+    </script>
+  </head>
+  <body></body>
+</html>

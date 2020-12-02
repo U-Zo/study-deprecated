@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const set = new Set();
+      set.add('one');
+      set.add('one');
+      set.add(100);
+      set.add(false);
+      console.log(set.size);
+
+      const data = set.values();
+      console.log(data.next().value);
+      console.log(data.next());
+      console.log(data.next());
+      console.log('===================');
+      console.log(set.has('one'));
+      console.log(set.has('two'));
+
+      console.log('entires ===========');
+      const entires = set.entries();
+      console.log(entires.next().value);
+      console.log(entires.next());
+      console.log(entires.next());
+      console.log('===================');
+      set.forEach((value, key, set) => {
+        console.log(value, key, set);
+      });
+
+      console.log(set.delete('one'));
+      console.log(set.size);
+      set.clear();
+      console.log(set.size);
+    </script>
+  </head>
+  <body></body>
+</html>

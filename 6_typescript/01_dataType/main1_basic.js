@@ -1,0 +1,13 @@
+"use strict";
+var mesg = '홍길동';
+var mesg2 = 10;
+var mesg3 = true;
+var mesg4 = null;
+var mesg5 = undefined;
+var mesg6 = function () { };
+console.log(mesg, mesg2, mesg3, mesg4, mesg5, mesg6);
+var b = 10;
+b = 20;
+var c = 20;
+console.log(b);
+console.log(c);

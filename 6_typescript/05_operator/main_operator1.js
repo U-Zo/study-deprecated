@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var num1 = 10;
+var num2 = 3;
+num1++;
+console.log("++: " + num1);
+num2--;
+console.log("--: " + num2);
+var num3 = 10;
+var num4 = ++num3;
+console.log("\uC804\uCE58 " + num3 + " " + num4);
+var num5 = num3++;
+console.log("\uD6C4\uCE58 " + num3 + " " + num5);

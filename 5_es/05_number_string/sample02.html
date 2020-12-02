@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const mesg = '123hello홍길동987';
+      console.log('1:', mesg.includes('123'));
+      console.log('2:', mesg.includes('홍길동'));
+      console.log('3:', mesg.includes('홍길도'));
+      console.log('4:', mesg.includes('123', 5)); // start index
+
+      // startWith()
+      console.log('1:', mesg.startsWith('123'));
+      console.log('2:', mesg.startsWith('hello'));
+      console.log('3:', mesg.startsWith('hello', 3));
+
+      // endWith()
+      console.log('1:', mesg.endsWith('987'));
+      console.log('2:', mesg.endsWith('hello'));
+      console.log('3:', mesg.endsWith('hello', 8));
+
+      // repeat()
+      const mesg2 = 'hello';
+      console.log('1:', mesg2.repeat());
+      console.log('2:', mesg2.repeat(1));
+      console.log('3:', mesg2.repeat(2));
+      console.log('4:', mesg2.repeat(3));
+    </script>
+  </head>
+  <body></body>
+</html>

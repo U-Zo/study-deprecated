@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const arr = ['홍길동', '이순신', '유관순'];
+
+      const x = arr.entries();
+      console.log(x);
+      for (const [key, value] of x) {
+        console.log(key, value);
+      }
+
+      const x2 = arr.keys();
+      for (const key of x2) {
+        console.log(key);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

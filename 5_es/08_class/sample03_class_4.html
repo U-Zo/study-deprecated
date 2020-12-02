@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // new.target은 constructor를 참조
+      class Person {
+        constructor(name, age) {
+          console.log(new.target);
+          console.log('---------');
+          console.log(new.target.name);
+        }
+
+        setName(name) {
+          this.name = name;
+        }
+
+        setAge(age) {
+          this.age = age;
+        }
+
+        getName() {
+          return this.name;
+        }
+
+        getAge() {
+          return this.age;
+        }
+      }
+
+      const p1 = new Person();
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const arr = Array.from('hello');
+      console.log(arr, arr[0]);
+
+      // 2번째 인자는 배열 생성하며 수행되는 함수 지정
+      const arr2 = Array.from('world', function (v) {
+        console.log('>>', v);
+      });
+
+      const arr3 = Array.from(
+        'happy',
+        function (v) {
+          console.log('**', v);
+          return v + this.mesg;
+        },
+        { mesg: '값' }
+      );
+
+      console.log(arr3);
+      console.log(Array.isArray(arr3));
+
+      const arr4 = Array.from({
+        0: 100,
+        1: 200,
+        length: 2,
+      });
+    </script>
+  </head>
+  <body></body>
+</html>
