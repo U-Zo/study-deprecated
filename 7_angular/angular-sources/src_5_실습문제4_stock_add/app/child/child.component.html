@@ -1,0 +1,9 @@
+<p>child works!</p>
+<h1>주식 등록 화면</h1>
+<div>
+  <div>주식명: <input #name /></div>
+  <div>주식 가격: <input #price /></div>
+  <button (click)="add({ stockSymbol: name.value, stockPrice: price.value })">
+    저장
+  </button>
+</div>

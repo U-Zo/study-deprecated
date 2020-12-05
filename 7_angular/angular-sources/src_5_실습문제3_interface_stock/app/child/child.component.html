@@ -1,0 +1,12 @@
+<p>child works!</p>
+<button (click)="handleEvent()">Stocks</button>
+<table border="1">
+  <tr>
+    <th>주식명</th>
+    <th>주식 가격</th>
+  </tr>
+  <tr *ngFor="let stock of stocks">
+    <td>{{ stock.stockSymbol }}</td>
+    <td>{{ stock.stockPrice }}</td>
+  </tr>
+</table>

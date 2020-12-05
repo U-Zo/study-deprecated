@@ -1,0 +1,8 @@
+<h1>{{ title }}</h1>
+<select [(ngModel)]="fruit">
+  <option value="🍌">바나나</option>
+  <option value="🍎">사과</option>
+  <option value="🍓" ng-selected="true">딸기</option>
+  <option value="🍉">수박</option>
+</select>
+<h2>선택한 과일: {{ fruit }}</h2>
