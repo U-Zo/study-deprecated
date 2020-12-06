@@ -1,0 +1,9 @@
+<h1>국가별 아침인사 서비스</h1>
+<div>국가별 인사를 선택하세요.</div>
+<select (change)="handleEvent($event.target.value)">
+  <option>KR</option>
+  <option>US</option>
+  <option>CN</option>
+  <option>JP</option>
+</select>
+<div>인사말: {{ mesg }}</div>
