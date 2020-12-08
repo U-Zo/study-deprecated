@@ -1,0 +1,5 @@
+<h1>{{ title }}</h1>
+날짜 입력: <input [(ngModel)]="currentDate" placeholder="20201208" /><br />
+<button (click)="handleEvent('-')">- 포맷</button>
+<button (click)="handleEvent('/')">/ 포맷</button><br />
+현재 날짜: {{ currentDate | my: flag }}

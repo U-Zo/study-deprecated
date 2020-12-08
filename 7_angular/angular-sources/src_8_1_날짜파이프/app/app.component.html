@@ -1,0 +1,10 @@
+<h1>{{ title }}</h1>
+<h2>날짜 포맷 지정</h2>
+<ul>
+  <li>01: {{ currentDate }}</li>
+  <li>02: {{ currentDate | date }}</li>
+  <li>03: {{ currentDate | date: "yy y" }}</li>
+  <li>04: {{ currentDate | date: "MM M dd d" }}</li>
+  <li>05: {{ currentDate | date: "y/MM/dd HH:mm:ss" }}</li>
+  <li>06: {{ currentDate | date: "y년 MM월 dd일 HH:mm:ss" }}</li>
+</ul>

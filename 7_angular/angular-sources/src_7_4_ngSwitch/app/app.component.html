@@ -1,0 +1,15 @@
+<h1>{{ title }}</h1>
+<h4>점수를 선택하세요</h4>
+<select [(ngModel)]="grade">
+  <option>90</option>
+  <option>80</option>
+  <option>70</option>
+  <option>60</option>
+</select>
+<h4>당신의 학점은?</h4>
+<ul [ngSwitch]="grade">
+  <li *ngSwitchCase="90">A 학점</li>
+  <li *ngSwitchCase="80">B 학점</li>
+  <li *ngSwitchCase="70">C 학점</li>
+  <li *ngSwitchDefault>F 학점</li>
+</ul>
