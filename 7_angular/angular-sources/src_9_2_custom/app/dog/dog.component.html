@@ -1,0 +1,32 @@
+<h2>강아지 등록</h2>
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+  <div>
+    이름:
+    <input type="text" name="name" id="name" formControlName="upperCase2" />
+  </div>
+  <div>
+    나이: <input type="text" name="age" id="age" formControlName="required1" />
+  </div>
+  <div>
+    종류:
+    <select name="species" id="species">
+      <option>선택하세요</option>
+      <option>진돗개</option>
+      <option>푸들</option>
+      <option>치와와</option>
+    </select>
+  </div>
+  <div>
+    friends: <input type="text" name="friends" id="friends" formControlName="eq5_1">5입력
+  </div>
+  <input type="submit" value="submit" [disabled]="form.invalid" />
+</form>
+{{ dog | json }}
+<h2>form 유효성 검증</h2>
+<p>1. form.vaild: {{ form.valid }}</p>
+<p>2. form.value: {{ form.value | json }}</p>
+<h2>개별 formControl 유효성 검증</h2>
+<p>1. form.controls.required1.value: {{ form.controls.required1.value }}</p>
+<p>2. form.controls.required1.valid: {{ form.controls.required1.valid }}</p>
+<p>3. form.controls.upperCase2.value: {{ form.controls.upperCase2.value }}</p>
+<p>4. form.controls.upperCase2.valid: {{ form.controls.upperCase2.valid }}</p>

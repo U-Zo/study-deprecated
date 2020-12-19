@@ -4,7 +4,7 @@ public class Cat {
 
 	private String catName;
 	private int catAge;
-
+	
 	// setter injection
 	public void setCatName(String catName) {
 		this.catName = catName;

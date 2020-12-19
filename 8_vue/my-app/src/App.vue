@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <HelloWorld />
+    <router-link :to="{ name: 'Bar' }">Bar</router-link><br />
+    <router-link :to="{ name: 'Foo' }">Foo</router-link><br />
+    <router-link :to="{ name: 'Baz', params: { id: 'kkkk' } }">Baz</router-link><br />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld';
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld,
-  },
+  components: {},
 };
 </script>
 
@@ -21,6 +20,5 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

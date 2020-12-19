@@ -1,0 +1,55 @@
+<h2>고양이 등록</h2>
+<!-- form 참조 변수 사용을 위해 ngForm 필수 -->
+<form (ngSubmit)="onSubmit()" #catForm="ngForm">
+  <div>
+    이름:
+    <input
+      type="text"
+      name="name"
+      id="name"
+      required
+      [(ngModel)]="cat.name"
+      #name="ngModel"
+    />
+    <span [hidden]="name.valid">이름 필수</span>
+  </div>
+  <div>
+    나이:
+    <input
+      type="text"
+      name="age"
+      id="age"
+      required
+      [(ngModel)]="cat.age"
+      #age="ngModel"
+    />
+    <span [hidden]="age.valid">나이 필수</span>
+  </div>
+  <div>
+    종류:
+    <select
+      name="species"
+      id="species"
+      [(ngModel)]="cat.species"
+      #species="ngModel"
+    >
+      <option>선택하세요</option>
+      <option>페르시안</option>
+      <option>시암고양이</option>
+      <option>먼치킨</option>
+    </select>
+  </div>
+  <input type="submit" value="submit" [disabled]="catForm.invalid" />
+</form>
+{{ cat | json }}
+<h3>name 및 age 유효성 검증값</h3>
+name.value={{ name.value }}<br />
+name.valid={{ name.valid }}<br />
+name.invalid={{ name.invalid }}<br />
+age.value={{ age.value }}<br />
+age.valid={{ age.valid }}<br />
+age.invalid={{ age.invalid }}<br />
+<h3>form 유효성 검증값</h3>
+catForm.value={{ catForm.value | json }}<br />
+catForm.valid={{ catForm.valid }}<br />
+catForm.invalid={{ catForm.invalid }}
