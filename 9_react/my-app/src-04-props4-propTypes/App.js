@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import Contact from './components/Contact';
 
 class App extends Component {
-  state = {
-    num: 1,
-  };
-
   render() {
     return (
       <div>
+        <Contact mesg="홍길동" mesg2="10" />
       </div>
     );
   }
